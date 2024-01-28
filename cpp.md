@@ -1,10 +1,9 @@
-## 关键字
-### explicit
+## explicit
 ```cpp
 explicit                
 //意为明确的，只能在构造函数中使用，禁用创建实例时的隐式转换
 ```
-### variant
+## variant
 ```cpp
 #include<variant>
 
@@ -143,5 +142,27 @@ int main()
     getSum(value++, value++);
     //g++编译结果为1+0=1, 在clang或者msvc中可能会不一样
     //写这种代码就是语义不清晰
+}
+```
+## enum
+* `enum` 是一种用于定义一组命名`整数常量`的方式
+```cpp
+enum Example
+{
+    A, B = 5, C
+//A, B, C 不需要提前定义
+};
+Example num
+switch num
+{
+    case A:
+    //something
+    break;
+    default:
+}
+//or 
+if (num = A)
+{
+    //something
 }
 ```
