@@ -1,3 +1,23 @@
+## disable nouveau driver
+```bash
+sudo vim /etc/modprobe.d/blacklist.conf
+```
+* add this
+```bash
+blacklist nouveau
+blacklist lbm-nouveau
+options nouveau modeset=0
+alias nouveau off
+alias lbm-nouveau off
+```
+
+## time sync
+```bash
+sudo apt install ntpdate
+sudo ntpdate time.windows.com
+sudo hwclock --localtime --systohc      
+```
+
 ## mount
 ```bash
 #获取可用的硬盘分区
@@ -121,6 +141,16 @@ sudo systemctl enable clash     #添加到启动项
 sudo systemctl stop clash       #停止
 sudo systemctl disable clash    #禁用   
 ```
+
+* 添加到环境变量中(添加到 ~/.bashrc 和 ~/.zshrc 中)
+```bash
+export http_proxy=127.0.0.1:7890
+export https_proxy=127.0.0.1:7890
+```
+
+* manage website
+https://clash.razord.top/#/proxies
+
 ## zip
 ```bash
 zip pkg.zip file1.txt file2.txt
@@ -130,4 +160,71 @@ zip pkg.zip file1.txt file2.txt
 ```bash
 export EDITOR=vim
 # 更改vim为默认文本编辑器
+```
+
+## gnome extensions
+```bash
+sudo apt install gnome-shell-extension-manager
+```
+
+## qq音乐
+```bash
+sudo vim /usr/share/applications/qqmusic.desktop
+```
+将
+```bash
+Exec=/opt/qqmusic/qqmusic %U
+```
+改为
+```bash
+Exec=/opt/qqmusic/qqmusic --no-sandbox %U
+```
+
+## zsh
+```bash
+sudo apt install zsh
+```
+* 安装oh-my-zsh
+进入oh-my-zsh, 复制命令安装
+
+* 查看已有主题
+```bash
+ls .oh-my-zsh/themes
+```
+
+* 查看拥有(不一定开启)的插件
+```bash
+ls ~/.oh-my-zsh/plugins
+```
+
+* 安装 zsh-autosuggestions  --历史补全
+```bash
+git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-autosuggestions
+```
+
+* 安装 zsh-syntax-highlighting  --语法正确高亮
+```bash
+git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+```
+
+* 配置.zshrc文件开启
+```bash
+plugins=(
+    git
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+)
+```
+
+## fxitx
+* 默认 shell 为 zsh 时 fcitx 不会自动启动且启动后无法在chrome中输入
+尝试添加这些到/etc/environment中
+```bash
+export XIM_PROGRAM=fcitx
+export XIM=fcitx
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=“@im=fcitx”
+export LANG=“zh_CN.UTF-8”
 ```
