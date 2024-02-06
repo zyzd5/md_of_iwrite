@@ -27,6 +27,9 @@ git log --oneline       #简洁日志
 git add [file_name]
 # 文件添加到暂存区
 
+git add .
+# 将所有修改过的文件和所有未被跟踪的文件添加到暂存区中
+
 git rm [file_name]
 # 同时从工作区和暂存区删除文件
 
@@ -34,7 +37,7 @@ git rm --cached [file_name]
 # 从暂存区删除文件
 
 git ls-files
-# 查看暂存区的内容
+# 列出所有被跟踪的文件
 
 git commit [file_name]
 # 提交到仓库
@@ -43,6 +46,9 @@ git commit [file_name] -m ["message"]
 # 添加-m参数来直接输入提交信息
 git commit [filename] -am ["message"]
 # 同时完成提交到暂存区和仓库
+
+git reset
+# 删除所有暂存区的文件
 
 git reset --soft 
 # 保存工作区的和暂存区的文件, 回退版本 
