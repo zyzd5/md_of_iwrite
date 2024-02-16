@@ -1,3 +1,4 @@
+# key word
 ## explicit
 ```cpp
 explicit                
@@ -32,12 +33,12 @@ else                                                //判断类型是否正确
     //所以实现方式是储存了每一个可能出现的类型大小，所以性能不如union，但是仍然好用
 
 ```
-## 代码优化
-### 编译器选项
+# 代码优化
+## 编译器选项
 * 在编译器选项前加上 -O1 or -O2 or -O3
 
 * 优化性能 -O0 -O1 -O2 -O3 从低到高
-### 循环步长
+## 循环步长
 ```cpp
 for (int i = 0; i < 50; i++)
     sum += i;
@@ -47,11 +48,11 @@ for (int i = 0; i < 50; i++)
 for (int i = 0; i < 50; i++)
     sum += i + (i + 1) + (i + 2) + (i + 3);
 ```
-## 左值和右值
+# 左值和右值
 粗略来说，  
 左值是`可以通过地址`找到的变量  
 右值是`不能通过地址`找到的常量
-#### 概念
+## 概念
 ```cpp
 string first_name = "z"
 string last_name = "yz"
@@ -73,7 +74,7 @@ void print_value(int&& i)
 }
 //只接受右值参数，如果放入左值会报错
 ```
-## 结构化绑定
+# 结构化绑定
 ```cpp
 #include<tuple>
     //绑定到元组
@@ -104,7 +105,7 @@ int main()
                                             //确实用来访问结构体好蠢
 }                                   
 ```
-## tuple
+# tuple
 ```cpp
 #include<tuple>
     std::tuple<std::string, int, int> person{"zyzds", 19, 22219131139}; //不带等号的初始化方式
@@ -113,7 +114,7 @@ int main()
     std::get<1>(person)     //返回1号位元素，即19 
 
 ```
-## unordered_map
+# unordered_map
 ```cpp
 std::unordered_map map;
 
@@ -128,7 +129,7 @@ std::unordered_map<int, int>::iterator //迭代器的类型
 iterator->first //访问键值对的key
 iterator->second //访问键值对的value
 ```
-## 参数计算顺序
+# 参数计算顺序
 ```cpp
 #include<iostream>
 
@@ -144,7 +145,7 @@ int main()
     //写这种代码就是语义不清晰
 }
 ```
-## enum
+# enum
 * `enum` 是一种用于定义一组命名`整数常量`的方式
 ```cpp
 enum Example
@@ -166,3 +167,9 @@ if (num = A)
     //something
 }
 ```
+# cout 和 cerr
+* std::cerr 和 std::cout 都是输出流对象，用于向控制台输出信息。它们之间的主要区别在于输出的流：
+    
+    * std::cerr 是标准错误流，用于输出错误消息。与 std::cout 不同，std::cerr 的输出不会被缓冲，这意味着它们会立即被发送到终端，即使在程序崩溃时也是如此。这使得 std::cerr 适用于输出严重的错误消息，即使程序发生崩溃，也能及时获得相关信息。
+
+    * std::cout 是标准输出流，用于一般输出。它的输出会被缓冲，因此输出不会立即显示在终端上。相比之下，std::cout 的缓冲可以提高程序的性能，但在某些情况下，如需要立即查看输出结果时，可能会造成延迟。
