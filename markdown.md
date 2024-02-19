@@ -84,7 +84,21 @@ $\int^{\infin}_1$
 ```md
 $$\Delta\sqrt{abc}$$    双$符表居中```
 ```
----
+$$\Delta\sqrt{abc}$$
+### 线性代数相关
+| 类型 | markdown | 效果 |
+|-|:-:|-|
+|乘法| \times | $a \times b$ |
+|点乘| \cdot | $a \cdot b$ |
+
+>
+* 括号形式  
+$\left( \begin{matrix}  0 & 1 & 3 \\  3 & 2 & 5 \\ 7 & 8 & 6  \end{matrix} \right)$
+
+* 中括号形式
+$\left[ \begin{matrix}  0 & 1 & 3 \\  3 & 2 & 5 \\ 7 & 8 & 6  \end{matrix} \right]$
+
+## 表格
 |姓名|年龄|职业|
 |-|-|-|
 ```md

@@ -228,3 +228,20 @@ export QT_IM_MODULE=fcitx
 export XMODIFIERS=“@im=fcitx”
 export LANG=“zh_CN.UTF-8”
 ```
+## bluetooth
+### windows
+```cmd
+cd .\Download\PSTools\
+./PsExec.exe -s -i regedit
+```
+定位到
+```cmd
+\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\BTHPORT\Parameters\Keys
+```
+### ubuntu
+蓝牙的linkkey存放在
+```bash
+cd /var/lib/bluetooth/&主机蓝牙地址/设备蓝牙地址
+sudo vim info
+```
+将两个linkkey修改为一致即可
