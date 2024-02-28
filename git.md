@@ -120,8 +120,31 @@ ssh-keygen -t rsa -b 4096
 * 根据提示生成后 `id_rsa` 为私钥, `id_rsa.pub` 为公钥
 
 * 复制公钥文件到github页面设置中粘贴进 SSH Keys 中
+
+```bash
+ssh -T -p 443 git@github.com
+# 测试连接
+```
 # 小报错
 ```bash
 warning: in the working copy of 'ansi.md', LF will be replaced by CRLF the next time Git touches it
 # 检测到换行符不是windows风格而是unix风格, 这个警告仅仅是提醒, 一般都能继续正常工作
+```
+```bash
+git push 
+```
+后提示
+> git@github.com's password:  
+解决方法:  
+在确保ssh密钥成功应用后
+尝试
+```bash
+ssh -T -p 443 git@ssh.github.com
+```
+能通过则在`~/.ssh/config`中添加
+```bash
+Host github.com
+Hostname ssh.github.com
+Port 443
+User git
 ```

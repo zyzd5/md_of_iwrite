@@ -10,14 +10,12 @@ options nouveau modeset=0
 alias nouveau off
 alias lbm-nouveau off
 ```
-
 ## time sync
 ```bash
 sudo apt install ntpdate
 sudo ntpdate time.windows.com
 sudo hwclock --localtime --systohc      
 ```
-
 ## mount
 ```bash
 #获取可用的硬盘分区
@@ -150,23 +148,19 @@ export https_proxy=127.0.0.1:7890
 
 * manage website
 https://clash.razord.top/#/proxies
-
 ## zip
 ```bash
 zip pkg.zip file1.txt file2.txt
 ```
-
 ## terminal
 ```bash
 export EDITOR=vim
 # 更改vim为默认文本编辑器
 ```
-
 ## gnome extensions
 ```bash
 sudo apt install gnome-shell-extension-manager
 ```
-
 ## qq音乐
 ```bash
 sudo vim /usr/share/applications/qqmusic.desktop
@@ -179,7 +173,6 @@ Exec=/opt/qqmusic/qqmusic %U
 ```bash
 Exec=/opt/qqmusic/qqmusic --no-sandbox %U
 ```
-
 ## zsh
 ```bash
 sudo apt install zsh
@@ -191,7 +184,10 @@ sudo apt install zsh
 ```bash
 ls .oh-my-zsh/themes
 ```
-
+```bash
+ZSH_THEME="robbyrussell"
+# in ~/.zshrc
+```
 * 查看拥有(不一定开启)的插件
 ```bash
 ls ~/.oh-my-zsh/plugins
@@ -216,7 +212,6 @@ plugins=(
     zsh-syntax-highlighting
 )
 ```
-
 ## fxitx
 * 默认 shell 为 zsh 时 fcitx 不会自动启动且启动后无法在chrome中输入
 尝试添加这些到/etc/environment中
@@ -245,3 +240,10 @@ cd /var/lib/bluetooth/&主机蓝牙地址/设备蓝牙地址
 sudo vim info
 ```
 将两个linkkey修改为一致即可
+## 字体
+```bash
+fc-list 
+# 显示所有支持的字体, 推荐搭配grep使用
+fc-list : family style
+# 显示所有字体系列
+```
