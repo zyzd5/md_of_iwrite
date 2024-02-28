@@ -1,20 +1,42 @@
-## .alacritty.yml
-```yml
-# 注意缩进
-font:
-    normal:
-        family: UbuntuMono Nerd Font Mono
-        style: Regular
-    bold: 
-        family: UbuntuMono Nerd Font Mono
-        style: Bold
-    italic: 
-        family: UbuntuMono Nerd Font Mono
-        style: italic 
-    bold_italic:          
-        family: UbuntuMono Nerd Font Mono
-        style: BoldItalic
-    size: 14
+## .alacritty.toml
+* 在 https://alacritty.org/config-alacritty.html 中查看详细
+```toml
+[window]
+startup_mode = "Windowed"
+
+opacity = 0.89
+# 不透明度, 默认为1.0
+decorations = "Buttonless"
+# 标题栏模式, macOS only, 默认为 "Full"
+
+[font]
+size = 14
+# font size
+
+[font.bold]
+family = "UbuntuMono Nerd Font Mono"
+style = "Bold"
+# Bold style
+
+[font.bold_italic]
+family = "UbuntuMono Nerd Font Mono"
+style = "BoldItalic"
+# BoldItalic style
+
+[font.italic]
+family = "UbuntuMono Nerd Font Mono"
+style = "italic"
+# italic style
+
+[font.normal]
+family = "UbuntuMono Nerd Font Mono"
+style = "Regular"
+# Regluar style
+
+[font.offset]
+x = 0
+y = 0
+# 字体 x, y 方向偏移值
 ```
 ## WARN
 ```bash

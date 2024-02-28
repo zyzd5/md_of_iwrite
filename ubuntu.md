@@ -174,9 +174,7 @@ Exec=/opt/qqmusic/qqmusic %U
 Exec=/opt/qqmusic/qqmusic --no-sandbox %U
 ```
 ## zsh
-```bash
-sudo apt install zsh
-```
+### oh-my-zsh
 * 安装oh-my-zsh
 进入oh-my-zsh, 复制命令安装
 
@@ -192,7 +190,7 @@ ZSH_THEME="robbyrussell"
 ```bash
 ls ~/.oh-my-zsh/plugins
 ```
-
+### 插件
 * 安装 zsh-autosuggestions  --历史补全
 ```bash
 git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-autosuggestions
@@ -201,9 +199,7 @@ git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_C
 * 安装 zsh-syntax-highlighting  --语法正确高亮
 ```bash
 git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-
 ```
-
 * 配置.zshrc文件开启
 ```bash
 plugins=(

@@ -43,6 +43,12 @@ require("lazy").setup({
 
 
 ```
+## 技巧
+```bash
+# write in .zshrc or .bashrc
+alias n='nvim'
+# 使用别名来打开nvim
+```
 ## ~/.config/nvim/plugins
 * 符合 init.lua 中 import 语法, 例
     * 如果 插件的 github 页面支持
