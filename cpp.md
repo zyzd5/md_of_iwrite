@@ -116,7 +116,7 @@ int main()
 ```
 # unordered_map
 ```cpp
-std::unordered_map map;
+std::unordered_map<type, type> map;
 
 map.find(key)   //返回key对应的键值对的迭代器
         //没有找到则返回map.end()对应的迭代器
@@ -154,7 +154,7 @@ enum Example
 //A, B, C 不需要提前定义
 };
 Example num
-switch num
+switch (num)
 {
     case A:
     //something
@@ -173,3 +173,50 @@ if (num = A)
     * std::cerr 是标准错误流，用于输出错误消息。与 std::cout 不同，std::cerr 的输出不会被缓冲，这意味着它们会立即被发送到终端，即使在程序崩溃时也是如此。这使得 std::cerr 适用于输出严重的错误消息，即使程序发生崩溃，也能及时获得相关信息。
 
     * std::cout 是标准输出流，用于一般输出。它的输出会被缓冲，因此输出不会立即显示在终端上。相比之下，std::cout 的缓冲可以提高程序的性能，但在某些情况下，如需要立即查看输出结果时，可能会造成延迟。
+# cout 
+```cpp
+std::cout.width(2);
+std::cout << "1" << "2";         
+// 控制下一项的缩进, 1 会缩进, 2 不会
+
+#include<iomanip>
+
+std::cout << year << "-";
+std::cout << std::setw(2) << std::setfill('0') << month << "-";
+// 设置填充和宽度
+
+// cout.width() 和 std::setw() 类似, setw 来自 <iomanip>, 可以在流中插入
+```
+# thread
+```cpp
+#include<iostream>
+#include<chrono>
+#include<thread>
+int main()
+{
+    using namespace std::literals::chrono_literals;	//引入线程头文件中的休眠部分
+
+    auto start_time = std::chrono::high_resolution_clock::now();	//得到开始时间
+    auto end_time = std::chrono::high_resolution_clock::now();	//得到结束时间
+    
+    std::this_thread::sleep_for(1s);	//休眠1s
+    
+    std::chrono::duration<float> duration = end_time - start_time;	//使用特殊类型得到经过时间
+    
+    std::cout << duration.count() << std::endl;		//使用count方法打印出来
+}
+```
+# optional
+```cpp
+#include<optional>          //C++ 17
+
+std::optional<std::string> data = "helloworld";
+
+data.value()                //返回data的值
+data.has_value()            //返回bool值
+
+if (data)
+    cout << data.value() << endl;
+else                    //优雅的判断是否有值的方法
+    cout << "empty" << endl;
+```

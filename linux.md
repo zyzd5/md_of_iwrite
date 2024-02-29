@@ -157,10 +157,32 @@ zip pkg.zip file1.txt file2.txt
 export EDITOR=vim
 # 更改vim为默认文本编辑器
 ```
+### 设置 sudo tlp-stat -b
+```bash
+sudo visudo
+```
+在 `@includedir /etc/sudoers.d` 后添加
+zyzds ALL=(ALL) NOPASSWD: /usr/bin/tlp-stat
+> 使用which tlp-stat 来确定路径
+
 ## gnome extensions
 ```bash
 sudo apt install gnome-shell-extension-manager
 ```
+* https://extensions.gnome.org/
+
+* https://extensions.gnome.org/extension/261/kimpanel/
+>使 fcitx 正常工作
+
+* https://extensions.gnome.org/extension/307/dash-to-dock/
+> 安装 dock 面板
+
+* https://extensions.gnome.org/extension/3740/compiz-alike-magic-lamp-effect/
+> 仿苹果出现效果
+
+* https://extensions.gnome.org/extension/3210/compiz-windows-effect/
+> 拖动窗口效果
+
 ## qq音乐
 ```bash
 sudo vim /usr/share/applications/qqmusic.desktop
@@ -219,6 +241,31 @@ export QT_IM_MODULE=fcitx
 export XMODIFIERS=“@im=fcitx”
 export LANG=“zh_CN.UTF-8”
 ```
+
+* 出现问题运行
+```bash
+fcitx-diagnose
+```
+
+### manjaro
+* 先换源
+```bash
+sudo pacman-mirrors -i -c China -m rank
+sudo pacman -Syy
+```
+
+* 安装fcitx要用的组件
+```bash
+sudo pacman -S fcitx5 \
+sudo pacman -S fcitx5-configtool  \
+sudo pacman -S fcitx5-qt\
+sudo pacman -S fcitx5-gtk\
+sudo pacman -S fcitx5-chinese-addons\
+sudo pacman -S fcitx5-material-color\
+sudo pacman -S kcm-fcitx5\
+sudo pacman -S fcitx5-lua
+
+
 ## bluetooth
 ### windows
 ```cmd
@@ -236,10 +283,28 @@ cd /var/lib/bluetooth/&主机蓝牙地址/设备蓝牙地址
 sudo vim info
 ```
 将两个linkkey修改为一致即可
-## 字体
+## font
+### 安装font
+复制字体文件到/usr/share/fonts/或者~/.local/share/fonts/中，
+执行
+```bash
+fc-cache -fv
+# 刷新缓存, f参数：force，v参数：view
+```
 ```bash
 fc-list 
 # 显示所有支持的字体, 推荐搭配grep使用
 fc-list : family style
 # 显示所有字体系列
 ```
+## find 
+```bash
+find ./code -name test.cc
+# 在 ./code 目录下搜索 test.cc文件
+```
+* 选项
+    * -name: 按文件名搜索
+    * -iname: 不区分大小写, 按文件名搜索 
+        * i 表示 `ignore`
+    * -inum 和 ls -i 配对使用, 以后再了解
+    

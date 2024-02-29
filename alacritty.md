@@ -4,7 +4,7 @@
 [window]
 startup_mode = "Windowed"
 
-opacity = 0.89
+opacity = 0.93
 # 不透明度, 默认为1.0
 decorations = "Buttonless"
 # 标题栏模式, macOS only, 默认为 "Full"
@@ -35,8 +35,9 @@ style = "Regular"
 
 [font.offset]
 x = 0
-y = 0
+y = 3
 # 字体 x, y 方向偏移值
+# 默认 (0, 0)
 ```
 ## WARN
 ```bash

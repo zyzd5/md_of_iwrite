@@ -39,3 +39,15 @@ airdropChancePercent”:空投几率 百分比
 "returnTimeOverrideSeconds": 1,
 "runIntervalSeconds": 10
 ```
+### 仓库扩容
+* X/Aki_Data/Server/database/templates/iteams
+查找  
+566abbc34bdc2d92178b4576 （标准版仓库代码）
+
+566abbc34bdc2d92178b4576 （留守版仓库代码）
+
+5811ce662459770f6f490f32  （准备逃离版仓库代码）
+
+5811ce772459770e9e5f9532 （黑暗边缘版仓库代码）
+
+修改 cellsV, 这个数值将决定你的仓库垂直行的数量
