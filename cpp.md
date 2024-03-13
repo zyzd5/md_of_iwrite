@@ -185,7 +185,8 @@ std::cout << year << "-";
 std::cout << std::setw(2) << std::setfill('0') << month << "-";
 // 设置填充和宽度
 
-// cout.width() 和 std::setw() 类似, setw 来自 <iomanip>, 可以在流中插入
+std::cout << std::fixed << std::setprecision(3) << sum << std::endl;
+// 保留小数点后n位
 ```
 # thread
 ```cpp
@@ -194,29 +195,54 @@ std::cout << std::setw(2) << std::setfill('0') << month << "-";
 #include<thread>
 int main()
 {
-    using namespace std::literals::chrono_literals;	//引入线程头文件中的休眠部分
+    using namespace std::literals::chrono_literals;	// 引入线程头文件中的休眠部分
 
-    auto start_time = std::chrono::high_resolution_clock::now();	//得到开始时间
-    auto end_time = std::chrono::high_resolution_clock::now();	//得到结束时间
+    auto start_time = std::chrono::high_resolution_clock::now();	// 得到开始时间
+    auto end_time = std::chrono::high_resolution_clock::now();	// 得到结束时间
     
-    std::this_thread::sleep_for(1s);	//休眠1s
+    std::this_thread::sleep_for(1s);	// 休眠1s
     
-    std::chrono::duration<float> duration = end_time - start_time;	//使用特殊类型得到经过时间
+    std::chrono::duration<float> duration = end_time - start_time;	// 使用特殊类型得到经过时间
     
-    std::cout << duration.count() << std::endl;		//使用count方法打印出来
+    std::cout << duration.count() << std::endl;		// 使用count方法打印出来
 }
 ```
 # optional
 ```cpp
-#include<optional>          //C++ 17
+#include<optional>          // C++ 17
 
 std::optional<std::string> data = "helloworld";
 
-data.value()                //返回data的值
-data.has_value()            //返回bool值
+data.value()                // 返回data的值
+data.has_value()            // 返回bool值
 
 if (data)
     cout << data.value() << endl;
-else                    //优雅的判断是否有值的方法
+else                    // 优雅的判断是否有值的方法
     cout << "empty" << endl;
 ```
+# string
+```cpp
+    std::string str = "helloworld";
+
+    str.c_str();             
+    // 返回 const char* 类型的字符串 
+
+    str.ease(0, 3);
+    // 擦除从 0 位置开始的 3 个字符
+
+    str.find("wo");
+    // 返回首字母对应的下标, 失败返回 -1
+
+    str.find("wo", 6);
+    // 从下标 6 开始查找, 返回-1
+
+    str.rfind("wo");
+    // 从尾开始寻找, 成功则返回首个下标
+
+    str.substr(3, 5);
+    // 返回下标 3 后的 5 个字符组成的字符串
+
+    str.replace(3, 5, "glhf");
+    // 将下标 3 开始的后 5 个字符替换为 "glhf"
+``` 

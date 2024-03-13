@@ -36,10 +36,10 @@
 |Reset| 0 | 0 |
 
 * 38是字体颜色的256版本
-    * 38的固定格式 "\x1b[38;5;${id}m"
+    * 38的固定格式 "\x1b[38;5; ${id} m"
 * 48是背景颜色的256版本
-    * 48的固定格式 "\x1b[48;5;${id}m"
-
+    * 48的固定格式 "\x1b[48;5; ${id} m"
+![256_color](./pictures/ansi_256_color.png)
 
 ### 常用隐私模式(直译)
 |ESC Code Sequence| Description|

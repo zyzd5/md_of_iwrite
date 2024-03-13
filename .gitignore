@@ -4,3 +4,4 @@ output/
 !*.md
 !./pictures
 *.cc
+*.csv

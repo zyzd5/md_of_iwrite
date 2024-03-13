@@ -53,6 +53,7 @@ alias n='nvim'
 * 符合 init.lua 中 import 语法, 例
     * 如果 插件的 github 页面支持
 ```lua
+-- lualine.nvim
 return
 {
     "nvim-lualine/lualine.nvim", 
@@ -62,12 +63,36 @@ return
         end, 
 }
 ```
+```lua
+-- nvim-tree
+return {
+  "nvim-tree/nvim-tree.lua",
+  version = "*",
+  lazy = false,
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",
+  },
+  config = function()
+    require("nvim-tree").setup {}
+  end,
+}
+```
 ## ~/.config/nvim/core
 ### 配置文件 keymaps.lua --not finished
 ```lua
-vim.g.mapleader = " "       -- 设置主键
+-- 设置主键
+vim.g.mapleader = " "       
 
-local keymap = vim.keymap   -- 局部变量
+-- 局部变量
+local keymap = vim.keymap   
+
+-------- window --------
+-- 右边打开新窗口
+keymap.set("n", "<leader>sv", "<C-w>v")
+
+-------- nvim-tree --------
+-- 主键 + e 打开侧边栏
+keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
 
 ```
 ### 配置文件 options.lua

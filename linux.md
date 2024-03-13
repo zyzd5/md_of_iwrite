@@ -155,6 +155,8 @@ zip pkg.zip file1.txt file2.txt
 ## terminal
 ```bash
 export EDITOR=vim
+alias "q"="exit"
+alias "n"="nvim"
 # 更改vim为默认文本编辑器
 ```
 ### 设置 sudo tlp-stat -b
@@ -164,7 +166,6 @@ sudo visudo
 在 `@includedir /etc/sudoers.d` 后添加
 zyzds ALL=(ALL) NOPASSWD: /usr/bin/tlp-stat
 > 使用which tlp-stat 来确定路径
-
 ## gnome extensions
 ```bash
 sudo apt install gnome-shell-extension-manager
@@ -182,7 +183,6 @@ sudo apt install gnome-shell-extension-manager
 
 * https://extensions.gnome.org/extension/3210/compiz-windows-effect/
 > 拖动窗口效果
-
 ## qq音乐
 ```bash
 sudo vim /usr/share/applications/qqmusic.desktop
@@ -264,14 +264,12 @@ sudo pacman -S fcitx5-chinese-addons\
 sudo pacman -S fcitx5-material-color\
 sudo pacman -S kcm-fcitx5\
 sudo pacman -S fcitx5-lua
-
-
+```
 ## bluetooth
 ### windows
 ```cmd
 cd .\Download\PSTools\
 ./PsExec.exe -s -i regedit
-```
 定位到
 ```cmd
 \HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\BTHPORT\Parameters\Keys
@@ -307,4 +305,3 @@ find ./code -name test.cc
     * -iname: 不区分大小写, 按文件名搜索 
         * i 表示 `ignore`
     * -inum 和 ls -i 配对使用, 以后再了解
-    

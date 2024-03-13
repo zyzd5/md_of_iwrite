@@ -53,7 +53,7 @@ git reset
 git reset --soft 
 # 保存工作区的和暂存区的文件, 回退版本 
 
-git reset --mixed 
+git reset --hard 
 # 工作区和暂存区都不保存, 回退版本 
 
 git reset --mixed       # reset的默认参数
@@ -78,6 +78,12 @@ git branch -d [branch_name]
 # 删除已经合并的分支
 git branch -D [branch_name]
 # 强制删除分支
+git branch -m [branch_name]
+# 当前分支 变更为 branch_name 分支 -m: move
+git branch -m [old_name] [new_name] 
+# 重命名分支 
+git config --global init.defaultBranch main
+# 初始化仓库时默认使用 main 作为名称
 
 git switch [branch_name]
 # 切换到其他分支
@@ -88,6 +94,17 @@ git merge [branch_name]
 git rebase [branch_name]
 # 将其他分支变基到当前分支
 
+git remote
+# 显示当前远程仓库的名称
+git remote -v
+# 显示远程仓库的详细信息 -v: verbose
+git remote add [remote_name] [remote_url]
+# 添加 [remote_name] 为 [remote_url] 的名称
+git remote set-url [remote_name] [url]
+# 切换远程仓库的url
+
+git checkout [commit_bash]
+# 切换到哈希值对应的提交
 ```
 # gitignore
 * 创建一个仓库主目录下存在的.gitignore文件, 每一行对应的是添加是需要忽略的文件, 支持通配符
