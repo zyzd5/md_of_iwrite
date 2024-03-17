@@ -7,6 +7,7 @@ startup_mode = "Windowed"
 opacity = 0.93
 # 不透明度, 默认为1.0
 decorations = "Buttonless"
+# Linux 下 只能 Full 或 Buttonless
 # 标题栏模式, macOS only, 默认为 "Full"
 
 [font]

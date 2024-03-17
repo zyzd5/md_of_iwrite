@@ -265,6 +265,11 @@ sudo pacman -S fcitx5-material-color\
 sudo pacman -S kcm-fcitx5\
 sudo pacman -S fcitx5-lua
 ```
+### 日语输入法mozc
+```bash
+sudo apt install fcitx5-mozc
+```
+* 在设置中启用
 ## bluetooth
 ### windows
 ```cmd
