@@ -11,6 +11,8 @@ $ 函数名 = \begin{cases}
 |-|:-:|-|
 |乘法| \times | $a \times b$ |
 |点乘| \cdot | $a \cdot b$ |
+* 行列式形式  
+$\left| \begin{matrix}  0 & 1 & 3 \\  3 & 2 & 5 \\ 7 & 8 & 6  \end{matrix} \right|$
 * 括号形式  
 $\left( \begin{matrix}  0 & 1 & 3 \\  3 & 2 & 5 \\ 7 & 8 & 6  \end{matrix} \right)$
 

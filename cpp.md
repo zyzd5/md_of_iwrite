@@ -33,6 +33,37 @@ else                                                //判断类型是否正确
     //所以实现方式是储存了每一个可能出现的类型大小，所以性能不如union，但是仍然好用
 
 ```
+## inline        
+* 多重定义
+    * 在C++17之前，inline关键字也用于解决链接问题。当一个函数或变量在多个编译单元中定义时，如果它被声明为inline，那么只要每个定义都相同，就不会出现多重定义错误。
+    
+    * 当在不同文件中定义的值不同时, 编译器会随机使用一个值
+
+* 命名空间
+    * 将使用 inline 关键字声明的命名空间中的成员可以被上次元素访问
+```cpp
+namespace Parent{
+    namespace Child1{
+        void func() {std::cout << "Child1::foo()" << std::endl;}
+    }
+
+    inline namespace Child2{
+        void func() {std::cout << "Child2::foo()" << std::endl;}
+    }
+}
+int main()
+{
+    Parent::Child1::func();
+    Parent::func();
+}
+/*
+output:
+Child1::foo()
+Child2::foo()
+说明 Child2 作用域中的 func() 可以被 Parent 访问
+*/
+```
+
 # 代码优化
 ## 编译器选项
 * 在编译器选项前加上 -O1 or -O2 or -O3
@@ -129,6 +160,18 @@ std::unordered_map<int, int>::iterator //迭代器的类型
 iterator->first //访问键值对的key
 iterator->second //访问键值对的value
 ```
+# vector
+```cpp
+std::vector<int> array(size, value);
+// 创建一个大小为 size, 内容为 value 的矩阵 
+
+std::vector<std::vector<int>> array(row, std::vector<int>(col, value))
+// 创建一个大小为 row*col, 内容全为 value 的矩阵
+
+std::vector<std::vector<int>> array(5, std::vector<int>(3, 2));
+// 创建一个大小为 5*3, 内容全为2的矩阵
+```
+
 # 参数计算顺序
 ```cpp
 #include<iostream>
@@ -207,7 +250,7 @@ int main()
     std::cout << duration.count() << std::endl;		// 使用count方法打印出来
 }
 ```
-# optional
+## optional
 ```cpp
 #include<optional>          // C++ 17
 

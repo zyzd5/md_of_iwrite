@@ -40,7 +40,7 @@ airdropChancePercent”:空投几率 百分比
 "runIntervalSeconds": 10
 ```
 ### 仓库扩容
-* X/Aki_Data/Server/database/templates/iteams
+* X/Aki_Data/Server/database/templates/items
 查找  
 566abbc34bdc2d92178b4576 （标准版仓库代码）
 
