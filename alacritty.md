@@ -12,6 +12,7 @@ decorations = "Buttonless"
 
 [font]
 size = 14
+
 # font size
 
 [font.bold]
