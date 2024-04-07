@@ -14,21 +14,9 @@ git config --global --list
 ```
 
 ```bash
-git init
-# 创建仓库
-
-git status
-# 查看状态
-
 git log
 git log --oneline       #简洁日志
 # 查看提交日志 
-
-git add [file_name]
-# 文件添加到暂存区
-
-git add .
-# 将所有修改过的文件和所有未被跟踪的文件添加到暂存区中
 
 git rm [file_name]
 # 同时从工作区和暂存区删除文件
@@ -38,14 +26,6 @@ git rm --cached [file_name]
 
 git ls-files
 # 列出所有被跟踪的文件
-
-git commit [file_name]
-# 提交到仓库
-# 默认会拉起默认文本编辑器来输入提交信息
-git commit [file_name] -m ["message"]
-# 添加-m参数来直接输入提交信息
-git commit [filename] -am ["message"]
-# 同时完成提交到暂存区和仓库
 
 git reset
 # 删除所有暂存区的文件
@@ -65,12 +45,6 @@ git reflog
 
 git diff
 # 默认比较的是工作区和暂存区的差别
-
-git push
-# 推送到仓库
-
-git pull
-# 拉取到仓库
 
 git branch [branch_name]
 # 创建新分支
@@ -105,24 +79,6 @@ git remote set-url [remote_name] [url]
 
 git checkout [commit_bash]
 # 切换到哈希值对应的提交
-```
-# gitignore
-* 创建一个仓库主目录下存在的.gitignore文件, 每一行对应的是添加是需要忽略的文件, 支持通配符
-
-* 只有在文件被追踪前才可以被忽略
-
-```bash
-*.a
-# 忽略所有 .a 文件
-
-!lib.a
-# 在上一条的基础上, 虽然忽略了所有的 .a 文件, 但是排除 lib.a 文件
-
-/DIR
-# 忽略主目录下的 /DIR 目录, 不忽略 subdir/DIR 目录
-
-build/
-# 忽略所有的 build 目录
 ```
 # 配置 ssh 密钥
 * 在用户根目录下创建 .ssh目录
