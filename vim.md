@@ -1,25 +1,49 @@
+## Normal
+* <C-u>/<C-b>: 往上翻半页/一页
+* <C-d>/<C-f>: 往下翻半页/一页
+* `{line}gg`: 跳转到 line 行
+* `zz`/`zt`/`zb`: 光标设置为 屏幕居中/屏幕第一行/屏幕最后一行
 
-`i`表示`insert`，`I`表示从`行首`插入  
-`a`表示`append`，`A`表示从`行尾`插入    
-`o`表示`open new line`,新增`下一行`  
-`O`表示与`o`相反，新增上一行 
--- 
-`Ctrl + f(forward)` 向前翻页
-`Ctrl + b(backward)` 向后翻页
-`Ctrl + u(up)` 向上翻半页
-`Ctrl + d(down)` 向下半翻页
+* `^/$`: 跳转到本行的开始/结尾
+* `%`: 跳转到配对的配对符(括号等)处
+### 文本操作
+* [count]{operator}{textobject}
+    * `diw`: 删除一个单词
+    * `ci(`: 修改括号内部
+    * `ya(`: 修改包括括号和内容物内容
+        * `i` 表示 `inner`
+        * `a` 和 i 相反
+* `<< / >>`: 左/右缩进   
+### 搜索相关
+* /{pattern}: 跳转到下一个 `pattern` 出现的地方
+* ?{pattern}: 跳转到上一个 `pattern` 出现的地方
+* pattern 可以是正则表达式
+* `*`: 等价于 /{pattern}, pattern 是当前光标下的单词 
+## Insert
+* `s`: 删除当前光标的字符
+* `S`: 删除当前行, 在开始输入
+## Command
+* :h {command}: 显示关于命令的帮助
+## Visual
+* 可视模式下 `x/y`: 剪切/复制, 回到 Normal 模式下 `p` 粘贴
+* Normal 模式下 `V` 进入行可视模式, 一次选中一整行
 
-`gg` 再开一把，表示移动到第一行  
-`G` 取反义移动到最后一行  
---  
-`ctrl+r`，撤回上次的撤回  
---  
-/someText
-向下查找
+## Operator+Motion= Action
+* {operation}{motion}: 一次编辑动作  
 
-?someText
-向上查找
-
-查找到后使用n(next)来查找下一项, N来查找下一项
-`shift+v`，选中一行  
-选中后可以使用`y`(yank), `d`(delete), `p`(paste)等等  
+* 操作符:
+    * `c`: `change` 
+    * `d`: `delete`
+    * `y`: `yank` 
+    * `v`: `visual`
+* 例:
+    * `dgg`: 删除到第一行
+    * `ye`: 复制到单词结尾
+    * `d$`: 删除到行尾
+    * `d%`: 将匹配括号和内容物全部删除
+* 大部分操作符连续两次(cc/dd/yy): 作用在这一行上
+## 重复操作
+* `.`: 重复上一次修改 
+* `u`: 撤销上一次修改
+* `<C-r>`: 重做上一次修改
+## 寄存器
