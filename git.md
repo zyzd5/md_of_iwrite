@@ -14,37 +14,15 @@ git config --global --list
 ```
 
 ```bash
-git log
-git log --oneline       #简洁日志
-# 查看提交日志 
-
-git rm [file_name]
-# 同时从工作区和暂存区删除文件
-
-git rm --cached [file_name]
-# 从暂存区删除文件
+git commit --amend -m "some message"
+# 修改上次提交
 
 git ls-files
 # 列出所有被跟踪的文件
 
-git reset
-# 删除所有暂存区的文件
-
-git reset --soft 
-# 保存工作区的和暂存区的文件, 回退版本 
-
-git reset --hard 
-# 工作区和暂存区都不保存, 回退版本 
-
-git reset --mixed       # reset的默认参数
-# 保存工作区, 删除暂存区, 回退版本 
-
 git reflog 
 # 查看所有操作的历史记录
 # 可以在使用hard选项误删除后, 找到误删除对应的版本号, 在使用reset回退
-
-git diff
-# 默认比较的是工作区和暂存区的差别
 
 git branch [branch_name]
 # 创建新分支
@@ -77,8 +55,7 @@ git remote add [remote_name] [remote_url]
 git remote set-url [remote_name] [url]
 # 切换远程仓库的url
 
-git checkout [commit_bash]
-# 切换到哈希值对应的提交
+git 
 ```
 # 配置 ssh 密钥
 * 在用户根目录下创建 .ssh目录

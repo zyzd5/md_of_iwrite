@@ -5,3 +5,4 @@ output/
 !./pictures
 *.cc
 *.csv
+.DS_Store
