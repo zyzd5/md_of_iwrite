@@ -14,12 +14,6 @@ git config --global --list
 ```
 
 ```bash
-git commit --amend -m "some message"
-# 修改上次提交
-
-git ls-files
-# 列出所有被跟踪的文件
-
 git reflog 
 # 查看所有操作的历史记录
 # 可以在使用hard选项误删除后, 找到误删除对应的版本号, 在使用reset回退

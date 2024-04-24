@@ -121,7 +121,7 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=sudo ./home/zyzds/clash/clash -d ./
+ExecStart=sudo ./home/zyzds/Documents/clash/clash -d /home/zyzds/Documents/clash
 User=root
 #ExecStart后替换为具体的命令
 [Install]

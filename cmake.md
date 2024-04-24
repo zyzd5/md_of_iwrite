@@ -11,7 +11,10 @@ cmake --build build
 cmake_minimum_required(VERSION 3.22.1)
 
 # 设置项目名称 
-project(Project_name)
+PROJECT(Project_name)
+PROJECT(name CXX) # 指定工程名称, 支持语言为c++
+PROJECT(name CXX C) # 指定工程名称, 支持语言为c++, c
+
 
 # 指定c++标准
 set(CMAKE_CXX_STANDARD 20)
