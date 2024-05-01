@@ -220,3 +220,22 @@ find ./code -name test.cc
 * -t --list 列出tar文件中包含的文件的信息
 * -v --verbose 列出每一步处理涉及的文件的信息，只用一个“v”时，仅列出文件名，使用两个“v”时，列出权限、所有者、大小、时间、文件名等信息
 * -z --gzip，--gunzip，--ungzip 调用gzip执行压缩或解压缩
+## 配置盒盖后不休眠
+```bash
+sudo nvim /etc/systemd/logind.conf
+```
+* 在[Login]部分
+    * HandleLidSwitch - 盖子关闭时触发，下面的两种情况除外。
+    * HandleLidSwitchExternalPower - 如果系统连接到外部电源，则在盖子关闭时触发。
+    * HandleLidSwitchDocked - 如果系统插入扩展坞，或者连接了多个显示器，则在盖子关闭时触发。
+    * 参数说明
+        * ignore(无操作)
+        * poweroff(关闭系统并切断电源)
+        * reboot(重新启动)
+        * halt(关闭系统但不切断电源)
+        * kexec(调用内核"kexec"函数)
+        * suspend(休眠到内存)
+        * hibernate(休眠到硬盘)
+        * hybrid-sleep(同时休眠到内存与硬盘)
+        * suspend-then-hibernate(先休眠到内存超时后再休眠到硬盘)
+        * lock(锁屏)
