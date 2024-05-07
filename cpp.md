@@ -184,8 +184,8 @@ int main()
 {
     int value = 0;
     getSum(value++, value++);
-    //g++编译结果为1+0=1, 在clang或者msvc中可能会不一样
-    //写这种代码就是语义不清晰
+    // g++编译结果为1+0=1, 在clang或者msvc中可能会不一样
+    // 写这种代码就是语义不清晰
 }
 ```
 # enum
