@@ -105,60 +105,13 @@ void print_value(int&& i)
 }
 //只接受右值参数，如果放入左值会报错
 ```
-# 结构化绑定
-```cpp
-#include<tuple>
-    //绑定到元组
-int main()
-{
-    std::tuple<std::string, int, int> Person = {"zyzds", 19, 123123123};
-    
-    auto[name, age, id] = Person;   //or auto[name, age, id](Person);
-
-    std::cout << name << std::endl;
-    //提供了一种便利的方法来访问成员变量
-}
-```
-```cpp
-    //绑定到结构体，类也同理
-struct Human
-{
-    std::string name = "zyzds";
-    int age = 19;
-    int id = 123123;
-};
-
-int main()
-{
-    Human human;
-    auto[name, age, id] = human;
-    std::cout << name << std::endl;         
-                                            //确实用来访问结构体好蠢
-}                                   
-```
 # tuple
 ```cpp
 #include<tuple>
-    std::tuple<std::string, int, int> person{"zyzds", 19, 22219131139}; //不带等号的初始化方式
     std::tuple<std::string, int, int> person1 = {"zbxds", 19, 12345678};    //带等号的初始化方式
 
     std::get<1>(person)     //返回1号位元素，即19 
 
-```
-# unordered_map
-```cpp
-std::unordered_map<type, type> map;
-
-map.find(key)   //返回key对应的键值对的迭代器
-        //没有找到则返回map.end()对应的迭代器
-
-map.at(key)     //返回key所在的value值，不存在则报错
-
-map.emplace(key, value) //往map中插入值，性能比insert更优
-
-std::unordered_map<int, int>::iterator //迭代器的类型
-iterator->first //访问键值对的key
-iterator->second //访问键值对的value
 ```
 # vector
 ```cpp
