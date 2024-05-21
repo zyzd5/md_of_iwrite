@@ -28,8 +28,6 @@ git branch -m [branch_name]
 # 当前分支 变更为 branch_name 分支 -m: move
 git branch -m [old_name] [new_name] 
 # 重命名分支 
-git config --global init.defaultBranch main
-# 初始化仓库时默认使用 main 作为名称
 
 git switch [branch_name]
 # 切换到其他分支
@@ -56,8 +54,7 @@ git
 
 * 在目录中输入 
 ```bash
-ssh-keygen -t rsa -b 4096
-# -t指定协议 rsa, -b指定块大小4096
+ssh-keygen
 ```
 
 * 根据提示生成后 `id_rsa` 为私钥, `id_rsa.pub` 为公钥

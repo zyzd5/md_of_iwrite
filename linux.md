@@ -239,3 +239,52 @@ sudo nvim /etc/systemd/logind.conf
         * hybrid-sleep(同时休眠到内存与硬盘)
         * suspend-then-hibernate(先休眠到内存超时后再休眠到硬盘)
         * lock(锁屏)
+## ssh
+```bash
+sudo apt install openssh-server
+```
+### 密码连接
+```bash
+sudo systemctl status sshd
+# 查看 sshd 状态
+```
+* 确定在同一局域网下, 使用ifconfig查看内网地址后使用
+```bash
+ssh User@192.168.x.x
+```
+### 密钥连接
+* 在客机生成密钥
+```bash
+cd ~/.ssh
+ssh-keygen
+# 输入保存的文件名和指纹后回车
+```
+```bash
+ssh-copy-id -i ~/.ssh/remote_ssh_key.pub zyzds@192.168.80.98
+# 将指定的公钥传输给服务器
+```
+```bash
+ssh -i ~/.ssh/remote_ssh_key zyzds@192.168.80.98
+# 使用私钥登陆
+```
+### 禁用密码登陆
+```bash
+sudo vim /etc/ssh/sshd_config
+```
+```
+PasswordAuthentication no
+PubkeyAuthentication yes
+```
+### 配置自动连接
+```bash
+touch ~/.ssh/config
+```
+```bash
+Host Y9000X
+    Hostname 192.168.80.98
+    IdentityFile ~/.ssh/remote_ssh_key
+    User zyzds
+
+# Host 为别名, 可以自己指定
+# 剩下的自己看情况填
+```
