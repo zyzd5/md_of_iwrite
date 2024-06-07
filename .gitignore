@@ -2,6 +2,7 @@
 .vscode/
 output/
 !*.md
+test.md
 !./pictures
 *.cc
 *.csv

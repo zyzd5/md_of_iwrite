@@ -8,24 +8,16 @@
 * `%`: 跳转到配对的配对符(括号等)处
 ### 文本操作
 * [count]{operator}{textobject}
-    * `diw`: 删除一个单词
+* `diw`: 删除一个单词
     * `ci(`: 修改括号内部
     * `ya(`: 修改包括括号和内容物内容
         * `i` 表示 `inner`
         * `a` 和 i 相反
-* `<< / >>`: 左/右缩进   
 ### 搜索相关
-* /{pattern}: 跳转到下一个 `pattern` 出现的地方
-* ?{pattern}: 跳转到上一个 `pattern` 出现的地方
-* pattern 可以是正则表达式
 * `*`: 等价于 /{pattern}, pattern 是当前光标下的单词 
 ## Insert
 * `s`: 删除当前光标的字符
 * `S`: 删除当前行, 在开始输入
-## Command
-* :h {command}: 显示关于命令的帮助
-## Visual
-* 可视模式下 `x/y`: 剪切/复制, 回到 Normal 模式下 `p` 粘贴
 ## Operator+Motion= Action
 * {operation}{motion}: 一次编辑动作  
 
