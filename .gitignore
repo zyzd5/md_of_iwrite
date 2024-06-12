@@ -3,6 +3,7 @@
 output/
 !*.md
 test.md
+temp.lua
 !./pictures
 *.cc
 *.csv
