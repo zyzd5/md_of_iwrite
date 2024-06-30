@@ -82,13 +82,10 @@ git push
 > git@github.com's password:  
 解决方法:  
 在确保ssh密钥成功应用后
-尝试
-```bash
-ssh -T -p 443 git@ssh.github.com
-```
-能通过则在`~/.ssh/config`中添加
+在`~/.ssh/config`中添加
 ```bash
 Host github.com
+IdentityFile ~/.ssh/${somefile}
 Hostname ssh.github.com
 Port 443
 User git
