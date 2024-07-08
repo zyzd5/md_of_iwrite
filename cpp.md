@@ -1,3 +1,54 @@
+# fstream
+```cpp
+#include<fstream>
+
+std::fstream file(file_name, option)       //option: ios::in, ios::out, ios::app，
+//ios::in   :拥有读权限
+//ios::out   :拥有写权限
+//ios::in   :拥有写权限，写入时为在文件末尾写入
+
+//没有验证过, 在option的部分可以使用(ios::in, ios::out), 也就是使用括号括起来, 或者使用ios::in | ios::out 来选择选项
+
+//还有其他的随用随查
+
+//在ios::前都要加std::
+std::fstream file(file_name)     
+//不写选项时默认为ios::in, ios::out
+
+std::ifstream file(file_name)
+//不写选项时默认为只有读权限
+
+std::ofstream file(file_name)
+//不写选项时默认为只有写权限
+
+if (!file.is_open())            
+    std::cout << "error opening" << std::endl;
+//判断是否正常打开
+
+file.read(file_text, string_size)  
+//读入的值传入file_text，大小为string_size
+//string_size可以写为sizeof(file_text)
+
+file >> file_text;      //读入的值传入file_text
+
+while (file.get(character))      
+//使用get函数读入到character,character为char类型
+
+while (file.getline(char store_char[size], size))
+    std::cout << store_char;     
+//使用fstream下成员函数getline读入到store_char,store_char为char[]类型，而不是char*类型,size为一个int类型的数字
+
+while(std::getline(file, file_text))
+    std::cout << string;     
+//使用标准库中getline函数读入,file为fstream对象，file_text为string类型
+
+flie.write(file_text, string_size)
+//写入的值传入file_text，大小为string_size
+//string_size可以写为sizeof(file_text)
+
+file << "helloworld";   //文本写入file
+```
+
 # key word
 ## explicit
 ```cpp
@@ -79,32 +130,6 @@ for (int i = 0; i < 50; i++)
 for (int i = 0; i < 50; i++)
     sum += i + (i + 1) + (i + 2) + (i + 3);
 ```
-# 左值和右值
-粗略来说，  
-左值是`可以通过地址`找到的变量  
-右值是`不能通过地址`找到的常量
-## 概念
-```cpp
-string first_name = "z"
-string last_name = "yz"
-
-string full_name = (first_name + last_name)
-```
-
-在这种条件下，等号左边的值全部是左值，等号右边的值都是右值  
->因为你不能通过地址寻找到"z"，"yz"，(first_name + last_name)这三个表达式的地址
-#### 左值引用和右值引用
-```cpp
-//左值引用
-int& i          
-
-//右值引用
-void print_value(int&& i)
-{
-    std::cout << i << std::endl; 
-}
-//只接受右值参数，如果放入左值会报错
-```
 # tuple
 ```cpp
 #include<tuple>
@@ -163,12 +188,6 @@ if (num = A)
     //something
 }
 ```
-# cout 和 cerr
-* std::cerr 和 std::cout 都是输出流对象，用于向控制台输出信息。它们之间的主要区别在于输出的流：
-    
-    * std::cerr 是标准错误流，用于输出错误消息。与 std::cout 不同，std::cerr 的输出不会被缓冲，这意味着它们会立即被发送到终端，即使在程序崩溃时也是如此。这使得 std::cerr 适用于输出严重的错误消息，即使程序发生崩溃，也能及时获得相关信息。
-
-    * std::cout 是标准输出流，用于一般输出。它的输出会被缓冲，因此输出不会立即显示在终端上。相比之下，std::cout 的缓冲可以提高程序的性能，但在某些情况下，如需要立即查看输出结果时，可能会造成延迟。
 # cout 
 ```cpp
 std::cout.width(2);
@@ -217,28 +236,3 @@ if (data)
 else                    // 优雅的判断是否有值的方法
     cout << "empty" << endl;
 ```
-# string
-```cpp
-    std::string str = "helloworld";
-
-    str.c_str();             
-    // 返回 const char* 类型的字符串 
-
-    str.ease(0, 3);
-    // 擦除从 0 位置开始的 3 个字符
-
-    str.find("wo");
-    // 返回首字母对应的下标, 失败返回 -1
-
-    str.find("wo", 6);
-    // 从下标 6 开始查找, 返回-1
-
-    str.rfind("wo");
-    // 从尾开始寻找, 成功则返回首个下标
-
-    str.substr(3, 5);
-    // 返回下标 3 后的 5 个字符组成的字符串
-
-    str.replace(3, 5, "glhf");
-    // 将下标 3 开始的后 5 个字符替换为 "glhf"
-``` 
