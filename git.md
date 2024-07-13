@@ -1,17 +1,7 @@
 # 命令
 ```bash
-git config --global user.name "zyzds"
-# 设置提交人为 "zyzds"
-
-git config --global user.email 1325471284@qq.com
-# 设置提交人邮箱为 1325471284@qq.com
-
 git config --global credential.helper store
 # 储存当前--还是没懂，等我看懂了再补全
-
-git config --global --list
-# 查看全局的配置信息, global 可以替换为--local, 查看当前仓库的配置信息
-```
 
 ```bash
 git reflog 
@@ -56,11 +46,6 @@ git
 ```bash
 ssh-keygen
 ```
-
-* 根据提示生成后 `id_rsa` 为私钥, `id_rsa.pub` 为公钥
-
-* 复制公钥文件到github页面设置中粘贴进 SSH Keys 中
-
 ```bash
 ssh -T -p 443 git@github.com
 # for windows
