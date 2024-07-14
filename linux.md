@@ -17,27 +17,35 @@ sudo ntpdate time.windows.com
 sudo hwclock --localtime --systohc      
 ```
 ## mount
+* -t(type): 文件系统类型
+* -o 
 ```bash
-#获取可用的硬盘分区
-sudo fdisk -l       #recommend
-lsblk               #or
+# 获取可用的硬盘分区
+sudo fdisk -l       
+lsblk              
 
-sudo mkdir /mnt/data   #创建挂载点,可以是home目录下的文件夹
-sudo mount -t ntfs-3g /dev/mounting_disk /dir1/dir2 #临时挂载
-
-#开机自动挂载
-sudo vim /etc/fstab
-#添加如下文字，根据条件更改
-/dev/sdXn   /mnt/data   ntfs   defaults   0   0
+sudo mount -t ntfs /dev/mounting_disk /dir1/dir2 #临时挂载
 ```
 
 ```bash
 #取消挂载
 sudo umount /mnt/data   #/mnt/data为挂载点
 ```
+### listing the mounts
+* -l(list)
+* -t(type)
 ```bash
-#-a： 挂载 /etc/fstab 文件中列出的所有文件系统。
-mount -a
+mount -l
+# 列出所有挂载点, 默认操作
+
+mount -l -t ntfs
+# 按类型列出挂载点
+```
+### 手动自动挂载
+```bash
+sudo vim /etc/fstab
+# 添加如下配置
+/dev/sdXn   /mnt/data   ntfs   defaults   0   0
 ```
 ## proxy
 ```bash
