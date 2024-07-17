@@ -1,3 +1,9 @@
+# proxy
+```bash
+git config --global http.proxy 'socks5://127.0.0.1:7890'
+git config --global https.proxy 'socks5://127.0.0.1:7890'
+```
+
 # 命令
 ```bash
 git config --global credential.helper store
@@ -73,6 +79,5 @@ Host github.com
 IdentityFile ~/.ssh/${somefile}
 Hostname ssh.github.com
 Port 443
-IdentityFile ~/.ssh/wsl_git
 User git
 ```
