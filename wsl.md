@@ -1,4 +1,27 @@
 * 在功能中启动 `适用于Linux的Windows子系统`
+## 重新挂载盘符
+```bash
+sudo vim /etc/wsl.conf
+```
+```ini
+[automount]
+enabled = true
+root = /mnt/
+options = "metadata,umask=22,fmask=11"
+```
+* `enable = true`: 启用自动挂载
+
+* `root = /home/zyzds`: 自动挂载到 /home/zyzds 下
+
+* `options = "metadata, umask=22, fmask=11"`: 
+    * `metadata`: 启用对文件的元数据支持, 允许 wsl 存储和读取文件的额外属性 
+
+    * `umask`: 决定文件和目录的默认权限
+        * 22 表示 权限默认为755, 计算方式为 777 - 022
+
+    * `fmask`: 决定文件的默认权限, 会覆盖 `umask` 的配置
+        * 计算原理同 `umask`
+## command
 ```bash
 wsl --install 
 # 安装默认发行版
