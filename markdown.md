@@ -1,21 +1,35 @@
-## 数学公式
-* 分段函数  
+## latex
+$\pm$  
+
+$\sqrt[n]{1+1}$  
+
+$\frac{dy}{dx}$  
+
+$\overline{x+y}$  
+$\underline{x+y}$
+
+$\vec{b}$  
+$\overrightarrow{AB}$  
+$\overleftarrow{CD}$  
+  
+$\int{a+b}$  
+$\lim_0^\infin{x^2}$  
+$\sum_{n=1}^{20} n^{2} $  
+
+### 分段函数  
 $ 函数名 = \begin{cases}
 公式一 & 条件一 \\
 公式二 & 条件二 \\
 公式三 & 条件三 
 \end{cases} $  
 ### 线性代数相关
-| 类型 | markdown | 效果 |
-|-|:-:|-|
-|乘法| \times | $a \times b$ |
-|点乘| \cdot | $a \cdot b$ |
 
 $\left[ \begin{matrix}  
 0 & 1 & 3 \\
 3 & 2 & 5 \\
 7 & 8 & 6  
 \end{matrix} \right]$
+
 
 ## 表格
 * 第二行中加:可以控制对齐方向  
