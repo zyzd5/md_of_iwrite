@@ -115,57 +115,6 @@ Child2::foo()
 */
 ```
 
-# 代码优化
-## 编译器选项
-* 在编译器选项前加上 -O1 or -O2 or -O3
-
-* 优化性能 -O0 -O1 -O2 -O3 从低到高
-## 循环步长
-```cpp
-for (int i = 0; i < 50; i++)
-    sum += i;
-```
-优化为
-```cpp
-for (int i = 0; i < 50; i++)
-    sum += i + (i + 1) + (i + 2) + (i + 3);
-```
-# tuple
-```cpp
-#include<tuple>
-    std::tuple<std::string, int, int> person1 = {"zbxds", 19, 12345678};    //带等号的初始化方式
-
-    std::get<1>(person)     //返回1号位元素，即19 
-
-```
-# vector
-```cpp
-std::vector<int> array(size, value);
-// 创建一个大小为 size, 内容为 value 的矩阵 
-
-std::vector<std::vector<int>> array(row, std::vector<int>(col, value))
-// 创建一个大小为 row*col, 内容全为 value 的矩阵
-
-std::vector<std::vector<int>> array(5, std::vector<int>(3, 2));
-// 创建一个大小为 5*3, 内容全为2的矩阵
-```
-
-# 参数计算顺序
-```cpp
-#include<iostream>
-
-int getSum(int a, int b)
-{
-    std::cout << a << "+" << b << "=" <<(a+b) << std::endl;
-}   
-int main()
-{
-    int value = 0;
-    getSum(value++, value++);
-    // g++编译结果为1+0=1, 在clang或者msvc中可能会不一样
-    // 写这种代码就是语义不清晰
-}
-```
 # enum
 * `enum` 是一种用于定义一组命名`整数常量`的方式
 ```cpp

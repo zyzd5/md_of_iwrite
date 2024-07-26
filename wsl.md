@@ -1,4 +1,22 @@
 * 在功能中启动 `适用于Linux的Windows子系统`
+## 在 archlinux 中没有 ssh-keygen
+```bash
+sudo pacman -S openssh
+# 需要刷新一次终端
+```
+## git proxy
+* 报错 `SSL_connect:SSL_ERROR_SYSCALL in connection to ...`
+    * 在 wsl1 下, 终端绑定proxy = 127.0.0.1:7890, 是可以访问到 windows 的代理的
+    * 但是 git 会出小问题, 很怪
+```bash
+git config --global -e
+
+# 添加内容
+[http]
+proxy = socks5://127.0.0.1:7890
+[https]
+proxy = socks5://127.0.0.1:7890
+```
 ## 重新挂载盘符
 ```bash
 sudo vim /etc/wsl.conf
@@ -35,9 +53,6 @@ wsl --list --online
 wsl --install -d ${distribution Name}
 # 安装指定发行版
 
-wsl --set-default ${distribution Name}
-# 设置默认发行版
-
 wsl --set-version ${distribution name} ${versionNumber}
 # versionNumber 为 1 或 2 
 
@@ -49,9 +64,6 @@ wsl --status
 
 wsl --shutdown
 # 终止所有正在运行的发行版, 重点是所有
-
-wsl --terminate ${distribution Name}
-# 终止指定的发行版运行
 
 wsl --unregister ${distribution Name}
 # 注销并卸载指定的发行版
