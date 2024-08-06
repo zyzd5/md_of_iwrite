@@ -1,3 +1,5 @@
+* `翻译单元`: 是指编译之前, 编译器处理好的即将要编译的代码文件
+
 # fstream
 ```cpp
 #include<fstream>
@@ -48,7 +50,6 @@ flie.write(file_text, string_size)
 
 file << "helloworld";   //文本写入file
 ```
-
 # key word
 ## explicit
 ```cpp
@@ -85,58 +86,20 @@ else                                                //判断类型是否正确
 
 ```
 ## inline        
-* 多重定义
-    * 在C++17之前，inline关键字也用于解决链接问题。当一个函数或变量在多个编译单元中定义时，如果它被声明为inline，那么只要每个定义都相同，就不会出现多重定义错误。
-    
+* 内联函数`或内联变量(C++17)`
+    * 内联函数中, 所有函数定义的局部静态对象在所有翻译单元中共享 
     * 当在不同文件中定义的值不同时, 编译器会随机使用一个值
 
-* 命名空间
+* 内联命名空间
     * 将使用 inline 关键字声明的命名空间中的成员可以在上层被访问
-```cpp
-namespace Parent{
-    namespace Child1{
-        void func() {std::cout << "Child1::foo()" << std::endl;}
-    }
+> inline 关键词的本意是作为给优化器的指示器，以指示优先采用函数的内联替换而非进行函数调用，即并不执行将控制转移到函数体内的函数调用 CPU 指令，而是代之以执行函数体的一份副本而无需生成调用。这会避免函数调用的开销（传递实参及返回结果），但它可能导致更大的可执行文件，因为函数体必须被复制多次
+>
+>因为关键词 inline 的含义是非强制的，编译器拥有对任何未标记为 inline 的函数使用内联替换的自由，和对任何标记为 inline 的函数生成函数调用的自由。这些优化选择不改变上述关于多个定义和共享静态变量的规则
+>
+>由于关键词 inline 对于函数的含义已经变为“容许多次定义”而不是“优先内联”，因此这个含义也扩展到了变量
+>(cppreference.com)
 
-    inline namespace Child2{
-        void func() {std::cout << "Child2::foo()" << std::endl;}
-    }
-}
-int main()
-{
-    Parent::Child1::func();
-    Parent::func();
-}
-/*
-output:
-Child1::foo()
-Child2::foo()
-说明 Child2 作用域中的 func() 可以被 Parent 访问
-*/
-```
-
-# enum
-* `enum` 是一种用于定义一组命名`整数常量`的方式
-```cpp
-enum Example
-{
-    A, B = 5, C
-//A, B, C 不需要提前定义
-};
-Example num
-switch (num)
-{
-    case A:
-    //something
-    break;
-    default:
-}
-//or 
-if (num = A)
-{
-    //something
-}
-```
+(C++17 起)
 # cout 
 ```cpp
 std::cout.width(2);
@@ -171,7 +134,7 @@ int main()
     std::cout << duration.count() << std::endl;		// 使用count方法打印出来
 }
 ```
-## optional
+# optional
 ```cpp
 #include<optional>          // C++ 17
 
@@ -184,4 +147,15 @@ if (data)
     cout << data.value() << endl;
 else                    // 优雅的判断是否有值的方法
     cout << "empty" << endl;
+```
+# ::std::
+* 基本上, 这种符号的意义为: 优先从全局作用域中搜索
+```cpp
+int x = 10; 
+
+void func() {
+    int x = 20; 
+    std::cout << x << std::endl; // 20
+    std::cout << ::x << std::endl; // 10
+}
 ```
