@@ -52,4 +52,13 @@
     * CPU性能不能只看主频, 还应该看 CPI
 
 * IPS(Instructions Per Second): 每秒执行多少条指令
+
+* FLOPS(Floating-point Operations Per Second): 每秒执行多少次浮点运算
+    * KFLOPS
+    * GFLOPS
+    * TFLOPS
+    * K=Kilo=10^3, M=Million=10^6, G=Giga=10^9, T=Tera=10^12 
+
+> 若A, B两个CPU的平均CPI相同, A的主频比B高, A一定更快吗
+> 答: 不一定 
 ## 总线
