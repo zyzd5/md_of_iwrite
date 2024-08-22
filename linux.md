@@ -1,3 +1,10 @@
+## grub
+* 更改启动顺序
+```bash
+sudo vim /etc/default/grub
+# when u modified it
+sudo update-grub
+```
 ## disable nouveau driver
 ```bash
 sudo vim /etc/modprobe.d/blacklist.conf
