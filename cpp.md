@@ -1,4 +1,6 @@
 * `翻译单元`: 是指编译之前, 编译器处理好的即将要编译的代码文件
+
+* std::map, std::set, std::multimap, std::multiset 都使用平衡搜索二叉树当作底层, 查询删除等操作都为 log(n) 级别复杂度
 # void*
 * 通用指针
 
