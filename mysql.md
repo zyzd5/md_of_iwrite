@@ -3,6 +3,9 @@
 SHOW DATABASES;
 -- 显示当前拥有的数据库
 
+SHOW TABLES
+-- 显示拥有的表
+
 CREATE DATABASE $database_name;
 
 DROP DATABASE $database_name;

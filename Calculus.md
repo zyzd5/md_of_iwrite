@@ -1,13 +1,72 @@
+## 放起来没看的
+* 三角函数中的万能公式
+## 符号
+* $[n]$: 意思是取整
+    * $[-3] = -3$
+    * $[\pi] = 3$
+## 反函数
+* 原函数: $y = f(x)$ 
+* 反函数: $x = f(y)$(交换了`x` 和 `y`)
+> 
+> * 根据函数的定义, 必须要一个`x`对应一个`y`
+> * 如果这个函数有反函数, 那么这个反函数也要一个`x`对应一个`y`, 因为反函数也是函数
+> * 所以这个原函数必须要是`严格单调`
+
 ## 集合
 * `A-B` 或 `A\B` 称为两个集合的差, 属于`A`而不属于`B`的元素的集合
 * $\overline{A}$ 表示 A 的补集, 即不属于 A 的部分
 ## 三角函数
-* $secx = {{1} \over {cosx}}$
-* $cscx = {{1} \over {sinx}}$
-* $sec^2x = 1 + tan^2x$
-* $csc^2x = 1 + cot^2x$
-# 汤家凤 2026 0基础 17:27
-# 先完全搞懂三角函数
+* `sin(Sine)`
+* `cos(Cosine)`
+* `tan(Tangent)`
+* `cot(Cotangent)`: 和 `tan` 互为倒数
+* `sec(Secant)`: 和 `cos` 互为倒数
+* `csc(Cosecant)`: 和 `sin` 互为倒数
+
+---
+> 都能推出来, 包的
+### 同角
+* $\mathrm{sec^2x = 1 + tan^2x}$
+* $\mathrm{csc^2x = 1 + cot^2x}$
+### 倍角
+* $\mathrm{sin2x = 2sinxcosx}$
+* $\mathrm{cos2x = cos^2x-sin^2x = 2cos^2x-1}$
+* $\mathrm{cos2x = cos^2x-sin^2x = 2cos^2x-1}$
+* $\mathrm{tan2x = {{2tanx} \over {1-tan^2x}}}$ (自己尝试推时上下同除 `cos^2x`)
+### 幂
+* $\mathrm{sin^2x = {{1+cos2x} \over {2}}}$
+* $\mathrm{cos^2x = {{1-cos2x} \over {2}}}$
+* $\mathrm{tan^2x = {{1-cos2x} \over {1+cos2x}}}$
+* 使用 $cos2x = 2cos^2x-1 = 1-2sin^2x$ 来推
+### 半角
+* 使用 幂 公式中 2x 替换为 x, x 替换为 x/2, 开方就能得到
+* $\mathrm{sin{a \over 2} = \pm\sqrt{{1-cosa}\over{2}}}$
+* $\mathrm{cos{a \over 2} = \pm\sqrt{{1+cosa}\over{2}}}$
+* $\mathrm{tan{a \over 2} = \pm\sqrt{{1-cosa}\over{1+cosa}}}$
+### 和差化积
+* $\mathrm{sin(a \pm b) = sin(a)cos(b) \pm sin(b)cos(a)}$
+* $\mathrm{cos(a + b) = cos(a)cos(b) - sin(b)sin(a)}$
+* $\mathrm{sin(a - b) = cos(a)cos(b) + sin(b)sin(a)}$
+* $\mathrm{tan(a+b) = {{tan(a) + tan(b)}\over{1-tan(a)tan(b)}}}$
+### 积化和差
+* 使用 `和差化积` 中的公式`相加`或者`相减`得到
+* $\mathrm{sin(a)cos(b) = {1\over2}\{sin(a+b) + sin(a-b)\}}$ 
+* $\mathrm{cos(a)cos(b) = {1\over2}\{cos(a+b) + cos(a-b)\}}$ 
+* $\mathrm{sin(a)sin(b) = {1\over2}\{cos(a+b) - cos(a-b)\}}$ 
+### 反三角
+* 就是交换 三角函数中 `x` 和 `y`(输入和输出) 的位置
+### 不等式(写下了, 但是还是不懂, 得取研究下)
+* 三角不等式:
+    * $||a|-|b|| \le |a \pm b| \le |a| + |b|$
+* 算术几何不等式: 
+    * $a^2 + b^2 \ge 2ab$
+    * $|ab| \le {{a^2+b^2}\over{2}}$
+    * $a_i \ge 0$, ${{a_1 + ... + a_n} \over n} \ge ^n\sqrt{a_1...a_n}$
+* 柯西不等式(不懂的)
+# 柯西不等式, 此为标记
+
+# 汤家凤 2026 0基础--02 
+
 # 下面是以前写的
 ## 微分方程
 * `微分方程`: 含有自变量x, 未知函数y 及其$y^{'}$或更高阶`导数`的方程

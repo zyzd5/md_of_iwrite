@@ -1,3 +1,13 @@
+## config
+```vim
+set number
+set relativenumber
+
+set clipboard+=unnamedplus
+" * unnamed: 在 linux 上 unnamed 和 unnamdplus 会有细微区别 
+" * unnamedplus: 在 linux, macos, windows, 行为均为和系统剪切板同步
+
+```
 ## Normal
 * `zz`: 屏幕居中
 * `zt`: 屏幕第一行
@@ -5,17 +15,12 @@
 
 * `%`: 跳转到配对的配对符(括号等)处
 
-* `f`(find): 
-    * f\<char> 移动到下一个 `<char>` 上
-    
-    * df\<char>: 删除到下一个 \<char>
-
-* `t`(to): 
-    * t\<char>移动到下一个 \<char> 之前的字符上
+* `<C-]>`: 跳转到光标下的帮助标签位置
+* `<C-o>`: 跳转到上一个光标位置, 文件之间
 ## Insert
 * `s`: 删除当前光标的字符, 进入insert
 * `S`: 删除当前行, 进入insert
-## 寄存器
+## Register
 * 一个字符对应一个寄存器(如`a-z`, `0-9`)
 * 特别的寄存器
     * `"`: 默认寄存器, 平时复制, 删除的内容都在里面
