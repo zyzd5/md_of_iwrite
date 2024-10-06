@@ -1,6 +1,15 @@
 * `翻译单元`: 是指编译之前, 编译器处理好的即将要编译的代码文件
 
 * std::map, std::set, std::multimap, std::multiset 都使用平衡搜索二叉树当作底层, 查询删除等操作都为 log(n) 级别复杂度
+# vector 
+* `vector` 有 `大小` 和 `容量` 两个概念, 当大小超过容量后, vector 会通过重新 `allocate` 来改变其容量, 这有可能会造成性能影响
+## reserve()
+* `$vector.reserve()`: 用于预先分配动态数组的内存空间，以提高容器在插入元素时的效率
+
+* reserve 只改变 capacity，不会影响当前的元素个数（size）。调用 reserve 后，vector 的 size() 仍然保持不变，只有 capacity() 会变大
+
+* `reserve` 主要用于需要大量添加元素的场景, 当你知道插入元素的数量时, 可以使用 `reserve` 来避免内存重新分配和元素拷贝
+    
 # void*
 * 通用指针
 

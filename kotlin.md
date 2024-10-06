@@ -1,3 +1,11 @@
+## by
+* `by` 可以将一个对象的属性操作委托给另一个对象来处理, 当你使用 `by` 关键字时, Kotlin 自动为你处理一些重复的代码逻辑, 将属性的访问和修改操作交给委托对象
+```kotlin
+class Example {
+    var value: String by AnotherClass()
+}
+```
+* value 属性的 `get` 和 `set` 操作会被委托给 `AnotherClass` 的对象来处理
 ## lambda
 ```kotlin
 val sum = { x: Int, y: Int -> x + y }
