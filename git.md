@@ -6,10 +6,6 @@ git config --global https.proxy 'socks5://127.0.0.1:7890'
 
 # 命令
 ```bash
-git config --global credential.helper store
-# 储存当前--还是没懂，等我看懂了再补全
-
-```bash
 git reflog 
 # 查看所有操作的历史记录
 # 可以在使用hard选项误删除后, 找到误删除对应的版本号, 在使用reset回退
@@ -43,7 +39,16 @@ git remote add [remote_name] [remote_url]
 git remote set-url [remote_name] [url]
 # 切换远程仓库的url
 
-git 
+git config --global -e
+# 编辑配置
+
+git config --global http.sslverify false
+# 禁用 ssh 验证
+
+git config --global sslCAInofo /path/to/crt
+# 手动指定证书
+
+
 ```
 # 配置 ssh 密钥
 * 在用户根目录下创建 .ssh目录

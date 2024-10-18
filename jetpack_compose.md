@@ -32,8 +32,7 @@ fun counter() {
 }
 ```
 * 在 Jetpack Compose 中, State 是一种数据模型, 用于驱动界面显示. 每当 `State` 发生变化, Jetpack Compose 会自动重新构建使用该 State 的 UI 部分
-## input
-### TextField
+## TextField
 `TextField` 允许用户输入文本，并可以与其他 UI 元素交互. 它通常与 mutableStateOf 结合使用来管理和保存用户输入的状态
 ### OutlinedTextField
 * `OutlinedTextField` 功能与 `TextField` 类似, 与 `TextField` 的区别是带有带边框的外观
@@ -149,7 +148,6 @@ Modifier.draggable(/* 拖动参数 */)
 Modifier.weight(2f)
 // 定义组件在布局中的比例, 例如我有 1f 的组件和 2f 的组件, 它们的比例为 2:1
 // 使用 weight 不会影响那些已经定义了固定高度或宽度的组件，它们会按原有大小显示，剩余的空间再分配给其他组件
-
 ```
 ## Text
 ### attribute
@@ -157,41 +155,24 @@ Modifier.weight(2f)
 * modifier = Modifier,
 * color = Color.$color,
 * fontSize = 20.sp,
-## BasicText
+### BasicText
 * `BasicText` 是一个用于显示静态文本的组件, 主要用于文本内容的展示. 与 `Text` 类似, 但它不提供许多高级功能, 如样式或富文本支持
 ## Layout
 ### Column
 * 使 {} 中的子组件呈上下排列
 #### attribute 
 * modifier = Modifier  
-* horizonalAlignment = Alignment.`start, end, CenterHorizontally`
-* verticalArrangement = Arrangement.`Top, Bottom, Center`
+* horizonalAlignment
+* verticalArrangement 
 ### Row
 * 使 {} 中的子组件呈左右排列
 #### attribute 
 * modifier = Modifier  
-* horizontalArrangement = Arrangement.`Center, End, Start`
-* verticalAlignment = Alignment.`Top, CenterVertically, Bottom`
+* horizontalArrangement
+* verticalAlignment  
 ## Box
 * `Box` 允许将多个子组件放置在同一位置, 子组件的排列顺序按照它们的添加顺序决定
 * 可以在 `子组件` 的属性中指定modifier 来修改位置
-    * Alignment.Topstart -> 左上角
-    * Alignment.TopCenter -> 顶部中间
-    * Alignment.TopEnd -> 右上角
-    * Alignment.CenterStart -> 左中间
-    * Alignment.Center -> 中间
-    * Alignment.CenterEnd -> 右中间
-    * Alignment.BottomStart -> 左下角
-    * Alignment.BottomCenter -> 底部中间
-    * Alignment.BottomEnd -> 右下角
-```kotlin
-Box (
-    modifier = Modifier.size(200.dp),
-) {
-    Text(text = "hello", modifier = Modifier.align(Alignment.TopStart))
-    Text(text = "zyzds", modifier = Modifier.align(Alignment.BottomEnd))
-}
-```
 ### attribute 
 * contentAlignment = Alignment.`Center`
     * 指定子组件默认的排列位置 

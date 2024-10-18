@@ -1,3 +1,19 @@
+## 二分查找
+* left 为 -1, right 为 arr.size()
+```cc
+int left = -1, right = arr.size();
+
+while (left + 1 != right)
+{
+    int mid = (left + right) / 2;
+    if (nums[mid] > target)
+        right = mid;
+    else if (nums[mid] < target)
+        left = mid;
+    else return mid;
+}
+return -1
+```
 ## 二叉树
 ```cc
 struct TreeNode

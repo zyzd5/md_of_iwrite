@@ -1,6 +1,13 @@
 * `翻译单元`: 是指编译之前, 编译器处理好的即将要编译的代码文件
 
-* std::map, std::set, std::multimap, std::multiset 都使用平衡搜索二叉树当作底层, 查询删除等操作都为 log(n) 级别复杂度
+# constexpr
+
+# enum class
+* 传统 `enum` 会将所有枚举值暴露在外部作用域, `enum class` 将枚举值限定在自身的作用域中, 从而避免冲突
+```cc
+enum class ErrorCode { NotFound, PermissionDenied, Unknown};
+enum class Status { Success, NotFound, Running};
+```
 # vector 
 * `vector` 有 `大小` 和 `容量` 两个概念, 当大小超过容量后, vector 会通过重新 `allocate` 来改变其容量, 这有可能会造成性能影响
 ## reserve()

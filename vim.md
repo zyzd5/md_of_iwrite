@@ -1,22 +1,11 @@
-## config
-```vim
-set number
-set relativenumber
+## Command
 
-set clipboard+=unnamedplus
-" * unnamed: 在 linux 上 unnamed 和 unnamdplus 会有细微区别 
-" * unnamedplus: 在 linux, macos, windows, 行为均为和系统剪切板同步
-
-```
 ## Normal
 * `zz`: 屏幕居中
 * `zt`: 屏幕第一行
 * `zb`: 屏幕最后一行
 
 * `%`: 跳转到配对的配对符(括号等)处
-
-* `<C-]>`: 跳转到光标下的帮助标签位置
-* `<C-o>`: 跳转到上一个光标位置, 文件之间
 ## Insert
 * `s`: 删除当前光标的字符, 进入insert
 * `S`: 删除当前行, 进入insert
@@ -41,3 +30,37 @@ set clipboard+=unnamedplus
     * `@{register}`: 重放寄存器`{register}`中的操作
     * `@@`: 重放上一次宏操作
     * `.` 对宏不生效
+## config
+```vim
+let mapleader = ' ' 
+
+set encoding=utf-8
+set number
+set relativenumber
+set clipboard+=unnamedplus
+set scrolloff=4
+set incsearch
+set ignorecase
+set smartcase
+set expandtab
+set shiftwidth=4
+set tabstop=4
+set whichwrap=b,h,l,<,> 
+
+nnoremap <leader>h <C-w>h
+nnoremap <leader>l <C-w>l
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+
+nnoremap ; ^
+nnoremap ' $
+
+nnoremap J <Nop>
+nnoremap q: <Nop>
+nnoremap <C-e> <Nop>
+
+vnoremap J >+1<CR>gv=gv
+vnoremap K <-2<CR>gv=gv
+
+nnoremap <leader>va ggVG
+```

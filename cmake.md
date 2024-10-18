@@ -1,37 +1,46 @@
-```bash
-# 配置项目
-cmake -S . -B build
-
-# 构建项目
-cmake --build build
-```
+* 变量使用必须要使用 {} 包括
+## 内置变量
+* 使用 set() 来修改变量
+* EXECUTABLE_OUTPUT_PATH
+* PROJECT_SOURCE_DIR
 
 ```cmake
-# 设置最低版本
-cmake_minimum_required(VERSION 3.22.1)
+set($variable_name $value)
 
-# 设置项目名称 
-PROJECT(Project_name)
-PROJECT(name CXX) # 指定工程名称, 支持语言为c++
-PROJECT(name CXX C) # 指定工程名称, 支持语言为c++, c
+cmake_minimum_required(VERSION $cur_version)
+
+project($project_name)
+
+add_executable($target dependencies1.cc dependencies2.cc)
+# 指定和目标和依赖
+
+target_include_directories($target [INTERFACE | PUBLIC | PRIVATE] $dirs...)
+# 较传统 include 更推荐使用, 可以避免污染到其他 target 的头文件搜索路径
+
+# $target: 通过 `add_executable` 或 `add_library` 创建的目标
+
+# [INTERFACE | PUBLIC | PRIVATE]: 当前头文件的可见范围
+    # INTERFACE: 仅对依赖目标有效，目标本身不会用到这些头文件目录
+    # PUBLIC: 对目标及其依赖目标有效。适用于库头文件需要暴露给使用该库的其他目标时使用
+    # PRIVATE: 仅对目标本身有效，适用于头文件只用于构建该目标，不对其他目标暴露
+
+# SYSTEM: 标记目录, 将目录添加到系统目录, 可以让编译器忽略这些文件中的警告
+    # 这种方式常用于第三方库的头文件, 以避免项目中出现不必要的警告信息
+
+include_directories([AFTER | BEFORE] [SYSTEM] $dirs...)
+# 告诉编译器在编译源文件时, 去哪些目录寻找头文件. 通常在项目中使用自定义库或外部库时，需要指定这些库的头文件路径
+
+# AFTER: 将目录添加到包含目录列表的末尾，表示优先级较低。
+# BEFORE: 将目录添加到包含目录列表的开头，表示优先级较高。
+
+# SYSTEM: 标记目录, 将目录添加到系统目录, 可以让编译器忽略这些文件中的警告
+    # 这种方式常用于第三方库的头文件, 以避免项目中出现不必要的警告信息
 
 
-# 指定c++标准
-set(CMAKE_CXX_STANDARD 20)
+aux_source_directory($dir $variable_name)
+# auxiliary
+# 某个目录下的所有源文件添加到一个变量中
+# 不推荐使用, 会使可维护性变差
+# 不灵活, 无法递归到子目录下
 
-# 使C++标准成为必需的，如果编译器不支持，则会报错
-set(CMAKE_CXX_STANDARD_REQUIRED True)
-
-# 添加第三方库
-find_package(imgui REQUIRED)
-
-# 添加可执行文件
-add_executable(main main.cpp ./Hello/hello.cpp ./World/world.cpp)
-# 第一个参数为主要可执行程序, 后面的为可执行程序的依赖项
-
-# 链接库
-target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE imgui::imgui)
-
-target_include_directories(main PUBLIC world)
-# 第一个参数是可执行文件, 第二个参数为选项, 第三个参数为搜索目录
-```
+``` 
