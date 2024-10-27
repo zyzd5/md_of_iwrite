@@ -4,7 +4,7 @@ git config --global http.proxy 'socks5://127.0.0.1:7890'
 git config --global https.proxy 'socks5://127.0.0.1:7890'
 ```
 
-# 命令
+# command
 ```bash
 git reflog 
 # 查看所有操作的历史记录
@@ -47,8 +47,6 @@ git config --global http.sslverify false
 
 git config --global sslCAInofo /path/to/crt
 # 手动指定证书
-
-
 ```
 # 配置 ssh 密钥
 * 在用户根目录下创建 .ssh目录

@@ -1,5 +1,5 @@
 * `翻译单元`: 是指编译之前, 编译器处理好的即将要编译的代码文件
-
+* R字符串: R"(原始字符串)";
 # constexpr
 
 # enum class
@@ -183,19 +183,38 @@ noexcept($expression)
 * C++17: 相同的结果和机制(noexcept 成为了 throw 的别名)
 * C++20: 移除 throw
 # cout 
-```cpp
-std::cout.width(2);
-std::cout << "1" << "2";         
-// 控制下一项的缩进, 1 会缩进, 2 不会
+## iomanip
+### 控制精度
+* std::fixed << std::setprecision(`num`)
 
-#include<iomanip>
+```cc
+std::cout << std::fixed << std::setprecision(`num`) << `value` << std::endl;
+```
+### 十进制, 八进制, 十六禁进制
+* std::dec -> 8 进制 
+* std::oct -> 10 进制
+* std::hex -> 16 进制
 
-std::cout << year << "-";
-std::cout << std::setw(2) << std::setfill('0') << month << "-";
-// 设置填充和宽度
+```cc
+std::cout << `std::dec` << `num` << std::endl;  
+std::cout << `std::oct` << `num` << std::endl; 
+std::cout << `std::hex` << `num` << std::endl; 
+```
+### 填充和宽度
+* std::setw(10)
+* std::setfill('*')
 
-std::cout << std::fixed << std::setprecision(3) << sum << std::endl;
-// 保留小数点后n位
+```cc
+std::cout << std::setw(10) << std::setfill('*') << 42 << std::endl; 
+// 输出: ********42
+```
+### 对齐
+* std::left
+* std::internal
+* std::right
+```cc
+* std::cout << std::left << std::setw(10) << "left" 
+    << std::right << std::setw(10) << "right" << std::endl;
 ```
 # thread
 ```cpp

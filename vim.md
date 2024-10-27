@@ -1,10 +1,27 @@
-## Command
+## surround
+* `添加包围字符`
+    * 在 `visual` 下, 按下 `S`, 然后输入想要的包围字符
+    * 示例: 选中 `text`, 按下 `S`, 输入 `"`, 结果为 "text"
+
+* `修改包围字符`
+    * 在 `normal` 下, 按下 `cs`(change surround), 然后输入新的包围字符
+    * 示例: 光标在 `"text"`中, 按下 `cs"'`, 结果为 'text'
+
+* `删除包围字符`
+    * 在 `normal` 下, 按下 `ds`(delete surround)
+    * 示例: 光标在 `"text"`中, 按下 `ds"`, 结果为 text
+    
+```txt
+surround_words          
+*make strings            
+[delete ar*ound me!]     
+remove <b>HTML t*ags</b> 
+'change quot*es'         
+<b>or tag* types</b>     
+delete(functi*on calls)  
+```
 
 ## Normal
-* `zz`: 屏幕居中
-* `zt`: 屏幕第一行
-* `zb`: 屏幕最后一行
-
 * `%`: 跳转到配对的配对符(括号等)处
 ## Insert
 * `s`: 删除当前光标的字符, 进入insert
@@ -54,6 +71,8 @@ nnoremap <leader>k <C-w>k
 
 nnoremap ; ^
 nnoremap ' $
+vnoremap ; ^
+vnoremap ' $
 
 nnoremap J <Nop>
 nnoremap q: <Nop>
