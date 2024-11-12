@@ -1,34 +1,45 @@
 * `翻译单元`: 是指编译之前, 编译器处理好的即将要编译的代码文件
 * R字符串: R"(原始字符串)";
-# constexpr
+## constexpr
+## round() ceil() floor()
+* round(double num)
+    * 四舍五入到最接近的整数
+* ceil(double num)
+    * 向上取整
+* floor(double num)
+    * 向下取整
+## random num
+```cc
 
-# enum class
+```
+## regex
+## enum class
 * 传统 `enum` 会将所有枚举值暴露在外部作用域, `enum class` 将枚举值限定在自身的作用域中, 从而避免冲突
 ```cc
 enum class ErrorCode { NotFound, PermissionDenied, Unknown};
 enum class Status { Success, NotFound, Running};
 ```
-# vector 
+## vector 
 * `vector` 有 `大小` 和 `容量` 两个概念, 当大小超过容量后, vector 会通过重新 `allocate` 来改变其容量, 这有可能会造成性能影响
-## reserve()
+### reserve()
 * `$vector.reserve()`: 用于预先分配动态数组的内存空间，以提高容器在插入元素时的效率
 
 * reserve 只改变 capacity，不会影响当前的元素个数（size）。调用 reserve 后，vector 的 size() 仍然保持不变，只有 capacity() 会变大
 
 * `reserve` 主要用于需要大量添加元素的场景, 当你知道插入元素的数量时, 可以使用 `reserve` 来避免内存重新分配和元素拷贝
     
-# void*
+## void*
 * 通用指针
 
 * 不可解引用, 由于 void* 不知道指向对象的类型, 所以不能访问其指向的内容
 
 * 使用前必须要强制转换
-# 三路比较运算符 (C++20)(懒得看, 以后再看)
-# lambda
+## 三路比较运算符 (C++20)(懒得看, 以后再看)
+## lambda
 * lambda 的本质上是, 编译器创建了一个匿名类, 在类中实现了operator()的重载
 
 * operator() 函数默认使用 const 修饰, 在说明符中添加 `mutable` 可以使成员可被修改
-## 闭包对象
+### 闭包对象
 * 是指由 lambda 表达式生成的对象, 包括被捕获的变量的引用(或副本), lambda 的函数体
 
 * 每个 lambda 表达式在编译时都会生成一个独一无二的匿名类, 闭包对象就是这个类的一个实例
@@ -36,11 +47,11 @@ enum class Status { Success, NotFound, Running};
 * 无状态的闭包对象是指 这个 lambda 表达式没有捕获任何变量, 只是一个简单的函数对象
 
 * 只有`不带有捕获变量的 lambda 表示式`, 可以当作函数对象被传入函数, `带有捕获变量的 lambda 表达式`可以使用 `\<functional>` 或者 `模版` 的方式来使用
-## +运算符
+### +运算符
 * 当对 lambda 表达式使用 `+` 运算符时, 它将会将 lambda 对象隐式转换为一个指向函数的指针
 
 * 这仅适用于没有捕获外部变量(也叫无状态)的 lambda 表达式, 这样的 lambda被视为纯函数, 可以直接被转换为函数指针
-## 捕获
+### 捕获
 * `[&]`: 按引用捕获被使用的自动变量
 * `[=]`: 按复制捕获被使用的自动变量
 ```cc
@@ -53,10 +64,10 @@ auto func = [&, x] {}
 // 按引用捕获, 但是 x 按值捕获
 ```
 
-# std::boolalpha
+## std::boolalpha
 * 在标准流输出时, 不设置 boolalpha 时, 输出 `true` 和 `false` 默认输出 `0`/`1` 
 * 在`std::cout << std::boolalpha << ` 后, 就能输出 `true` 和 `false` 为 `true`/`false` 
-# fstream
+## fstream
 ```cpp
 #include<fstream>
 
@@ -106,13 +117,13 @@ flie.write(file_text, string_size)
 
 file << "helloworld";   //文本写入file
 ```
-# key word
+## key word
 ## explicit
 ```cpp
 explicit                
 //意为明确的，只能在构造函数中使用，禁用创建实例时的隐式转换
 ```
-## variant
+### variant
 ```cpp
 #include<variant>
 
@@ -141,7 +152,7 @@ else                                                //判断类型是否正确
     //所以实现方式是储存了每一个可能出现的类型大小，所以性能不如union，但是仍然好用
 
 ```
-## inline        
+### inline        
 * 内联函数`或内联变量(C++17)`
     * 内联函数中, 所有函数定义的局部静态对象在所有翻译单元中共享 
     * 当在不同文件中定义的值不同时, 编译器会随机使用一个值
@@ -156,18 +167,18 @@ else                                                //判断类型是否正确
 >(cppreference.com)
 
 (C++17 起)
-## noexcept
+### noexcept
 * 使用 noexcept 的好处
     * 编译器不会为该函数建立异常处理相关的代码, 这有助于提高性能
     * 当编译器认定函数有可能会抛出异常后, 编译器会建立异常处理机制, 包括建立和拆卸栈帧, 异常传播
     * 当真的抛出异常时, 编译器会确保正确地进行栈展开, 这意味着在 func 退出时, 所有局部变量的析构函数都会被调用, 以免资源泄漏
-### noexcept 运算符
+#### noexcept 运算符
 ```cpp
 noexcept($expression)
 ```
 * noexcept 运算符进行编译时检查，如果表达式被标记为 `noexcept`, 则返回 `true`, 否则返回 `false`
 * 在运算符中的表达式并不会真的被执行, 仅仅只进行检查是否有标记
-### noexcept 说明符
+#### noexcept 说明符
 * C++17前不是函数类型的一部分
 * C++17后是函数类型的一部分
 
@@ -178,19 +189,23 @@ noexcept($expression)
 * 当函数声明为 `void func() noexcept` 和 `void func() noexcept(true)` 时, 它们等价
 * 当函数声明为 `void func()` 和 `void func()` 时, 它们等价
 
-### noexcept 和 throw
+#### noexcept 和 throw
 * C++11: 相同的结果, 不同的机制
 * C++17: 相同的结果和机制(noexcept 成为了 throw 的别名)
 * C++20: 移除 throw
-# cout 
+## cout 
+## 四舍五入
+ 
 ## iomanip
 ### 控制精度
 * std::fixed << std::setprecision(`num`)
+    * 在直接使用 `std::setprecision()` 时, 会将所有数字算在精度中
+    * 使用 `std::fixed << std::setprecision()` 时, 只会限制小数点后的精度
 
 ```cc
 std::cout << std::fixed << std::setprecision(`num`) << `value` << std::endl;
 ```
-### 十进制, 八进制, 十六禁进制
+#### 十进制, 八进制, 十六禁进制
 * std::dec -> 8 进制 
 * std::oct -> 10 进制
 * std::hex -> 16 进制
@@ -200,7 +215,7 @@ std::cout << `std::dec` << `num` << std::endl;
 std::cout << `std::oct` << `num` << std::endl; 
 std::cout << `std::hex` << `num` << std::endl; 
 ```
-### 填充和宽度
+#### 填充和宽度
 * std::setw(10)
 * std::setfill('*')
 
@@ -208,7 +223,7 @@ std::cout << `std::hex` << `num` << std::endl;
 std::cout << std::setw(10) << std::setfill('*') << 42 << std::endl; 
 // 输出: ********42
 ```
-### 对齐
+#### 对齐
 * std::left
 * std::internal
 * std::right
@@ -216,7 +231,7 @@ std::cout << std::setw(10) << std::setfill('*') << 42 << std::endl;
 * std::cout << std::left << std::setw(10) << "left" 
     << std::right << std::setw(10) << "right" << std::endl;
 ```
-# thread
+## thread
 ```cpp
 #include<iostream>
 #include<chrono>
@@ -235,7 +250,7 @@ int main()
     std::cout << duration.count() << std::endl;		// 使用count方法打印出来
 }
 ```
-# optional
+## optional
 ```cpp
 #include<optional>          // C++ 17
 
@@ -248,15 +263,4 @@ if (data)
     cout << data.value() << endl;
 else                    // 优雅的判断是否有值的方法
     cout << "empty" << endl;
-```
-# ::std::
-* 基本上, 这种符号的意义为: 优先从全局作用域中搜索
-```cpp
-int x = 10; 
-
-void func() {
-    int x = 20; 
-    std::cout << x << std::endl; // 20
-    std::cout << ::x << std::endl; // 10
-}
 ```

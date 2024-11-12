@@ -1,3 +1,5 @@
+## 排序
+### 快速排序
 ## 回溯
 ## 二分查找
 * left 为 -1, right 为 arr.size()
@@ -42,10 +44,6 @@ void recursion(std::vector<int> &result, TreeNode* root) noexcept
     recursion(result, root->left);
     result.push_back(root->val);
     recursion(result, root->right);
-    // 先遍历到左树的根, 不存在下一级时, 存储当前的 val, 再遍历右树
-    // 中序需要先遍历到左根, 以保证均为 左中右的储值顺序
-    // 前序则为先储值, 再遍历左树, 再遍历右树
-    // 后序再为先遍历左, 再遍历右树, 再储值
 }
 ```
 ### 求深度
