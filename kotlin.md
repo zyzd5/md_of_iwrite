@@ -10,14 +10,6 @@ class Example {
 ```kotlin
 val sum = { x: Int, y: Int -> x + y }
 ```
-### 语法糖
-* 如果 lambda 是函数的最后一个参数，Kotlin 允许将 lambda 表达式放在括号外面：
-```kotlin
-fun main() {
-    val result = operateOnNumbers(5, 3) { x, y -> x + y }
-    println(result)  // 输出: 8
-}
-```
 ### it 关键字
 * 当 lambda 表达式只有一个参数时，Kotlin 提供了简写形式，默认参数名为 it，不需要显式声明参数
 ```kotlin

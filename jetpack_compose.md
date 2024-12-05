@@ -1,7 +1,72 @@
+## Activity Life Cycle
+```Activity Life Cycle
+                               ╔════════════╗
+                               ║  Activity  ║
+                               ║  launched  ║
+                               ╚════════════╝ 
+                                      |    
+                                      ⌄    
+                               *------------*
+             ╭ ------------->  | onCreate() |
+             |                 *------------*
+             |                        |    
+             |                        ⌄    
+             |                 *------------*                    *------------*
+             |                 |  onStart() |  <---------------- | onRestart()|
+             |                 *------------*                    *------------*
+             |                        |     means app in foreground    |
+                                      ⌄    /                           |
+       User navigates          *------------*                          |
+       to the activity         | onResume() |  <------------╮          |
+                               *------------*               |          |
+             |                        |                     |          |
+             |                        ⌄                     |          |
+        ╔════════════╗         ╔════════════╗               |          |
+        ║ App process║         ║  Activity  ║               |          |
+        ║    killed  ║         ║  running   ║               |          |
+        ╚════════════╝         ╚════════════╝               |          |
+             ^                        |                     |          |
+             |                        ⌄                     |          |
+             |                Another activity comes        |          |
+             |                into the foreground           |          |
+             |                        |                     |          |
+             |                        ⌄                     |          |
+     Apps with higher          *------------*               |          |
+  priority need momory         |  onPause() |  ------  User returns    |
+             |                 *------------*         to the activity  |
+             |                        |                                |
+             |                        |                                |
+             |                   The activity is                       |
+             |                  no longer visible                      |
+             |                        |                                |
+             |                        ⌄                                |
+             |                 *------------*                          |
+             ╰--------------   |  onStop()  |   ---------------- User navigates   
+                               *------------*                    to the activity
+                                      |    
+                        The activity is finishing or
+                        being destoryed by the system
+                                      |
+                               *------------*
+                               | onDestory()|
+                               *------------*
+                                      |
+                                ╔════════════╗
+                                ║ Activity   ║
+                                ║ shut down  ║
+                                ╚════════════╝
+```
+##   
 ## Divider
 * `Divider` 是一个用于在界面中创建视觉分隔线的组件
 * `Divider` 被改用为了 `VerticalDivider` 和 `HorizontalDivider`
 * 直接使用 VerticalDivider() 和 HorizontalDivider() 即可, 需要改变样式使用 modifier
+## Surface 
+* 主要用于为其他 UI 元素提供背景、边框、阴影等视觉效果
+```kotlin
+Surface(
+    //... 
+)
 ## Spacer
 * `Spacer` 用于在 UI 元素之间创建空白区域, 在布局中起到占位符的作用
 ```kotlin
@@ -99,8 +164,6 @@ OutlinedTextField(
 
 * 在 Jetpack Compose 中, UI 是声明式的, 即 UI 会根据数据状态来进行自动更新. 而 mutableStateOf() 可以帮助你将可变的数据封装为一个可以被 Compose 跟踪的状态对象, 使得当状态改变时, Compose 界面会自动响应并重组
 ## modifier
-* Modifier 可以通过链式调用进行组合，使得多个修饰器可以同时应用于同一个组件
-* Modifier 是不可变的，每次调用 Modifier 的方法都会返回一个新的 Modifier 实例
 ```kotlin
 Text(
     text = "Hello, Jetpack Compose!",
@@ -113,37 +176,36 @@ Text(
 ```
 ```kotlin
 Modifier.fillMaxSize()
-// 使组件宽度填满父组件
-
 Modifier.fillMaxWidth()
-// 使组件宽度填满父组件的最大宽度
-
 Modifier.fillMaxHeight()
-// 使组件高度填满父组件的最大高度
+
+Modifier.align(Alignment.Center)
+// Alignment.Center：居中对齐
+// Alignment.TopStart：左上角对齐
+// Alignment.TopEnd：右上角对齐
+// Alignment.BottomStart：左下角对齐
+// Alignment.BottomEnd：右下角对齐
+// Alignment.TopCenter：顶部居中
+// Alignment.BottomCenter：底部居中
+// Alignment.CenterStart：垂直居中，左对齐
+// Alignment.CenterEnd：垂直居中，右对齐
 
 Modifier.padding(16.dp)
-// 为组件添加内边距
 
 Modifier.size(100.dp, 50.dp)
-// 设置组件的具体尺寸
 
 Modifier.wrapContentSize()
-// 让组件的大小根据内容自适应
+// not work at all, try to figure out what it is
 
 Modifier.background(Color.Blue)
-// 为组件添加背景颜色
 
 Modifier.border(2.dp, Color.Red)
-// 为组件添加边框
 
 Modifier.shadow(4.dp)
-// 为组件添加阴影效果
 
-Modifier.clickable { /* 处理点击事件 */ }
-// 使组件可点击，并定义点击事件
+Modifier.clickable { /* some action */ }
 
-Modifier.draggable(/* 拖动参数 */)
-// 使组件可拖动
+Modifier.draggable(/* what kind of stuff inside? */)
 
 Modifier.weight(2f)
 // 定义组件在布局中的比例, 例如我有 1f 的组件和 2f 的组件, 它们的比例为 2:1

@@ -41,8 +41,6 @@ ssh -T -p 443 git@github.com
 # or
 ssh -T  git@github.com
 # are you sure you want to continue connecting (yes/no/[fingerprint])? 
-# 输入 yes
-# 提示成功后就能 git push
 ```
 # 小报错
 ```bash
