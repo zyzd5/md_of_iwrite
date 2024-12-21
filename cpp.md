@@ -6,8 +6,15 @@
     * 四舍五入到最接近的整数
 * ceil(double num)
     * 向上取整
-* floor(double num)
+* floor(double num)                                                        
     * 向下取整
+## random number
+```cc
+std::random_device rnd;
+std::uniform_int_distribution<int> dist(1, 6);
+
+std::cout << dist(rnd) << std::endl;
+```
 ## regex
 ## enum class
 * 传统 `enum` 会将所有枚举值暴露在外部作用域, `enum class` 将枚举值限定在自身的作用域中, 从而避免冲突
