@@ -1,3 +1,19 @@
+## ln
+* `symbolic link`: like shortcut in Windows
+    * link point to target_file's `path`
+    * if target_file was deleted, link will be a invalid link 
+
+* `hard link`: the entry of file
+    * each file must have at `least one` hard link
+    * a file's all of hard link be deleted, the file will be detele
+```sh
+ln [option] source_file target_file
+# none option will create hard link
+# -s: symbolic link
+# -v: verbose
+
+ln -s source_file soft_link
+```
 ## disable nvidia driver
 ```bash
 sudo vim /etc/default/grub
