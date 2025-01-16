@@ -1,45 +1,63 @@
 ## const
-* $ A^3 + B^3 = (A + B)(A^2 - AB + B^2) $
-* $ A^3 - B^3 = (A - B)(A^2 + AB + B^2) $
+> * 等差数列
+> * $ a + (a+d) + (a+2d) + ... + a + (n-1)d = na + {{n(n-1)} \over 2}d $ 
 
-* 不定积分: 逆向还原导数, 得到函数的原函数
-* 定积分: 计算函数在某一区间的累积量
+> * 等比数列
+> * $ a + aq + aq^2 + ... + aq^{n-1} = \begin{cases} {{a(1-q^n)} \over {1-q}}, & q \ne 1 \\ an, & q = 1 \end{cases} $
 
-* $ sin(x+y) = sin(x) * cos(y) + sin(y) * cos(x) $
-* $ cos(x+y) = cos(x) * cos(y) - sin(y) * sin(x) $
+> * $ 1+2+...+n = {n(n+1) \over 2}$
+>
+> * $ 1^2 + 2^2 + ... +n^2 = {n(n+1)(2n+1) \over 6} $
 
-* $  $
+> * 不定积分: 逆向还原导数, 得到函数的原函数
+> * 定积分: 计算函数在某一区间的累积量
 
-## 1800 可以重做的题
-* p4: 1
-## little point
+> * $ A^3 + B^3 = (A + B)(A^2 - AB + B^2) $
+> 
+> * $ A^3 - B^3 = (A - B)(A^2 + AB + B^2) $
+
+> * `cot(Cotangent)`: 和 `tan` 互为倒数
+>
+> * `sec(Secant)`: 和 `cos` 互为倒数
+>
+> * `csc(Cosecant)`: 和 `sin` 互为倒数
+
+> * $ sec \space x = {1 \over cos \space x} $
+>
+> * $ csc \space x = {1 \over sin \space x} $ 
+>
+> * $ sec^2 \space x = 1 + tan^2 \space x $
+>
+> * $ csc^2 \space x = 1 + cot^2 \space x $
+
+> * __倍角公式__
+> * $ sin2x = 2sinxcosx$
+>
+> * $ cos2x = cos^2x-sin^2x = 2cos^2x-1$
+>
+> * $ cos2x = cos^2x-sin^2x = 2cos^2x-1$
+>
+> * $ tan2x = {{2tanx} \over {1-tan^2x}}$ (推理时上下同除 `cos^2x`)
+
+> * __高幂转低幂__
+> * $sin^2x = {{1+cos2x} \over {2}}$
+>
+> * $cos^2x = {{1-cos2x} \over {2}}$
+>
+> * $tan^2x = {{1-cos2x} \over {1+cos2x}}$
+>
+> * (使用 $cos2x = 2cos^2x-1 = 1-2sin^2x$ 来推)
+
+* > 半角公式
+* $sin{a \over 2} = \pm\sqrt{{1-cosa}\over{2}}$
+* $cos{a \over 2} = \pm\sqrt{{1+cosa}\over{2}}$
+* $tan{a \over 2} = \pm\sqrt{{1-cosa}\over{1+cosa}}$
+* 使用 `高幂转低幂` 公式中 2x 替换为 x, x 替换为 x/2, 开方就能得到
+
+## theory
 * 费马引理: 当原函数曲线 `平` 时, f'(x) == 0 
-
-
 ## 放起来没看的
 * 三角函数中的万能公式
-## 三角函数
-* `cot(Cotangent)`: 和 `tan` 互为倒数
-* `sec(Secant)`: 和 `cos` 互为倒数
-* `csc(Cosecant)`: 和 `sin` 互为倒数
-### 同角
-* $\mathrm{sec^2x = 1 + tan^2x}$
-* $\mathrm{csc^2x = 1 + cot^2x}$
-### 倍角
-* $\mathrm{sin2x = 2sinxcosx}$
-* $\mathrm{cos2x = cos^2x-sin^2x = 2cos^2x-1}$
-* $\mathrm{cos2x = cos^2x-sin^2x = 2cos^2x-1}$
-* $\mathrm{tan2x = {{2tanx} \over {1-tan^2x}}}$ (自己尝试推时上下同除 `cos^2x`)
-### 幂
-* $\mathrm{sin^2x = {{1+cos2x} \over {2}}}$
-* $\mathrm{cos^2x = {{1-cos2x} \over {2}}}$
-* $\mathrm{tan^2x = {{1-cos2x} \over {1+cos2x}}}$
-* 使用 $cos2x = 2cos^2x-1 = 1-2sin^2x$ 来推
-### 半角
-* 使用 幂 公式中 2x 替换为 x, x 替换为 x/2, 开方就能得到
-* $\mathrm{sin{a \over 2} = \pm\sqrt{{1-cosa}\over{2}}}$
-* $\mathrm{cos{a \over 2} = \pm\sqrt{{1+cosa}\over{2}}}$
-* $\mathrm{tan{a \over 2} = \pm\sqrt{{1-cosa}\over{1+cosa}}}$
 ### 和差化积
 * $\mathrm{sin(a \pm b) = sin(a)cos(b) \pm sin(b)cos(a)}$
 * $\mathrm{cos(a + b) = cos(a)cos(b) - sin(b)sin(a)}$
@@ -69,11 +87,8 @@
 * $y = log_ax$
 * $sinx, cosx, tanx, cotx, secx, cscx$
 * $arcsinx, arccosx, arctanx, arccotx$
-## 初等函数
-* 有`常数`, `基本初等函数`构成的函数
-## 奇偶性
-* 关于`原点`对称: `奇`, 如`sinx`
-* 关于`y 轴`对成: `偶`, 如`cosx`
 ### 判断函数是`奇`还是`偶`
 * 证明出 `f(x) == f(-x)` -> `偶`
 * 证明出 `-f(x) == f(-x)` -> `奇`
+## 1800 
+* p4: 1
