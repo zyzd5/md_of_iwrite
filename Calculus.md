@@ -1,30 +1,49 @@
+## temp
+## concept
+* 不定积分: 逆向还原导数, 得到函数的原函数
+* 定积分: 计算函数在某一区间的累积量
+## 等价无穷小 
+* 两个无穷小 $ a(x) $ 和 $ b(x) $ 满足: $ \lim_{x \to a} {a(x) \over {b(x)}} = a$, 则称 $ a(x) $ 和 $ b(x) $ 是等价无穷小
+
+* 记作 $ a(x) \sim b(x) $
+
+* 在化简时, 分母处的函数 $ b(x) $ 必须处处不为 `0` 
+
+* 等价无穷小表示在某一点附近，两个函数趋于零的“速度”是一样的
+
+
+* 当 $ x \to 0 $ 时
+    1. $ x \sim sin(x) \sim tan(x) \sim arcsin(x) \sim arctan(x) $
+    1. $ x \sim ln(1+x) $
+    1. $ x \sim e^x-1 $
+    2. $ a^x-1 \sim xlna $
+    3. $ log_a(1+x) \sim {x \over ln(a)} $
+    4. $ x-sin(x) \sim arcsin(x)-x \sim {1 \over 6 x^3} $
+    5. $ 1-cos(x) \sim {1 \over 2 x^2} $
+    6. $ x-arctan(x) \sim tan(x)-x \sim {1 \over 3 x^3} $
+    7. $ ln(x + \sqrt{1+x^2}) \sim x $
 ## const
 > * 等差数列
-> * $ a + (a+d) + (a+2d) + ... + a + (n-1)d = na + {{n(n-1)} \over 2}d $ 
+>   * $ a + (a+d) + (a+2d) + ... + a + (n-1)d = na + {{n(n-1)} \over 2}d $ 
 
 > * 等比数列
-> * $ a + aq + aq^2 + ... + aq^{n-1} = \begin{cases} {{a(1-q^n)} \over {1-q}}, & q \ne 1 \\ an, & q = 1 \end{cases} $
+>   * $ a + aq + aq^2 + ... + aq^{n-1} = \begin{cases} {{a(1-q^n)} \over {1-q}}, & q \ne 1 \\ an, & q = 1 \end{cases} $
 
 > * $ 1+2+...+n = {n(n+1) \over 2}$
 >
 > * $ 1^2 + 2^2 + ... +n^2 = {n(n+1)(2n+1) \over 6} $
 
-> * 不定积分: 逆向还原导数, 得到函数的原函数
-> * 定积分: 计算函数在某一区间的累积量
 
-> * $ A^3 + B^3 = (A + B)(A^2 - AB + B^2) $
+> * $ x^3 + y^3 = (x + y)(x^2 - xy + y^2) $
 > 
-> * $ A^3 - B^3 = (A - B)(A^2 + AB + B^2) $
+> * $ x^3 - y^3 = (x - y)(x^2 + xy + y^2) $
 
 > * `cot(Cotangent)`: 和 `tan` 互为倒数
 >
-> * `sec(Secant)`: 和 `cos` 互为倒数
+> * `sec(secant)`: 和 `cos` 互为倒数
 >
 > * `csc(Cosecant)`: 和 `sin` 互为倒数
 
-> * $ sec \space x = {1 \over cos \space x} $
->
-> * $ csc \space x = {1 \over sin \space x} $ 
 >
 > * $ sec^2 \space x = 1 + tan^2 \space x $
 >
@@ -70,7 +89,7 @@
 * $\mathrm{sin(a)sin(b) = {1\over2}\{cos(a+b) - cos(a-b)\}}$ 
 ### 反三角
 * 就是交换 三角函数中 `x` 和 `y`(输入和输出) 的位置
-### 不等式(写下了, 但是还是不懂, 得取研究下)
+### 不等式 ?
 * 三角不等式:
     * $||a|-|b|| \le |a \pm b| \le |a| + |b|$
 * 算术几何不等式: 
@@ -87,7 +106,15 @@
 * $y = log_ax$
 * $sinx, cosx, tanx, cotx, secx, cscx$
 * $arcsinx, arccosx, arctanx, arccotx$
-### 判断函数是`奇`还是`偶`
+## 无穷小
+* 以 `0` 为极限的函数称为 `无穷小`
+    * 满足 `函数` 和 `极限为 0` 两个条件就是无穷小
+
+* 除了 `0` 以外, 函数是否是无穷小和 x 的趋向有关
+> * 有函数 $ f(x) = 3(x-1)^2 $
+>   * $ x\to 2, \lim f(x) = 2 $, 此时函数不是无穷小
+>   * $ x\to 1, \lim f(x) = 0 $, 此时函数是无穷小
+## 判断函数是`奇`还是`偶`
 * 证明出 `f(x) == f(-x)` -> `偶`
 * 证明出 `-f(x) == f(-x)` -> `奇`
 ## 1800 

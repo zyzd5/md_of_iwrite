@@ -119,19 +119,20 @@ plugins=(
 ```
 ## fxitx
 ```bash
-sudo apt install fcitx5
-sudo apt install fcitx5-chinese-addons
-sudo apt install fcitx5-mozc
+yay -S fcitx5 fcitx5-chinese-addons fcitx5-mozc fcitx5-gtk fcitx5-qt
 ```
-* 添加到.zshrc中
+* 添加到 `/etc/environment` 中 (未验证)
 ```bash
-export XIM_PROGRAM=fcitx
-export XIM=fcitx
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS="@im=fcitx"
-export LANG="zh_CN.UTF-8"
+XIM_PROGRAM=fcitx
+XIM=fcitx
+GTK_IM_MODULE=fcitx
+QT_IM_MODULE=fcitx
+XMODIFIERS="@im=fcitx"
+LANG="zh_CN.UTF-8"
 ```
+
+### chromium & electron issue 
+* 启动 chromium 时添加启动项 `--enable-wayland-ime`
 
 * 出现问题运行
 ```bash
