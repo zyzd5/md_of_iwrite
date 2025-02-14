@@ -1,5 +1,11 @@
-## temp
-
+## 分段函数
+$
+f(x) =
+\begin{cases}
+{exp1} & {condition1} \\
+{exp2} & {condition2} \\
+\end{cases}
+$
 ## latex
 |||
 |-|-|

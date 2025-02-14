@@ -1,3 +1,10 @@
+## chrome
+```sh
+# /usr/share/applications/google-chrome.desktop 
+# 每个 `Exec 字段都添加`
+Exec=/usr/bin/google-chrome-stable --enable-wayland-ime --proxy-server="127.0.0.1:7890"
+
+```
 ## ln
 * `symbolic link`: like shortcut in Windows
     * link point to target_file's `path`

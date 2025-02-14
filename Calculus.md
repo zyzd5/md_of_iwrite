@@ -1,54 +1,17 @@
 ## temp
+$  $
+## 可微?
+## 0基础_status
+* 01: done, but不等式? 
+* 02: done 
+* 03: 0:32:38 
+* 04: 0:35:24
+* 07: done, but反函数?
+* 08: done
+
 ## concept
 * 不定积分: 逆向还原导数, 得到函数的原函数
 * 定积分: 计算函数在某一区间的累积量
-## 等价无穷小 
-* 两个无穷小 $ a(x) $ 和 $ b(x) $ 满足: $ \lim_{x \to a} {a(x) \over {b(x)}} = a$, 则称 $ a(x) $ 和 $ b(x) $ 是等价无穷小
-
-* 记作 $ a(x) \sim b(x) $
-
-* 在化简时, 分母处的函数 $ b(x) $ 必须处处不为 `0` 
-
-* 等价无穷小表示在某一点附近，两个函数趋于零的“速度”是一样的
-
-
-* 当 $ x \to 0 $ 时
-    1. $ x \sim sin(x) \sim tan(x) \sim arcsin(x) \sim arctan(x) $
-    1. $ x \sim ln(1+x) $
-    1. $ x \sim e^x-1 $
-    2. $ a^x-1 \sim xlna $
-    3. $ log_a(1+x) \sim {x \over ln(a)} $
-    4. $ x-sin(x) \sim arcsin(x)-x \sim {1 \over 6 x^3} $
-    5. $ 1-cos(x) \sim {1 \over 2 x^2} $
-    6. $ x-arctan(x) \sim tan(x)-x \sim {1 \over 3 x^3} $
-    7. $ ln(x + \sqrt{1+x^2}) \sim x $
-## const
-> * 等差数列
->   * $ a + (a+d) + (a+2d) + ... + a + (n-1)d = na + {{n(n-1)} \over 2}d $ 
-
-> * 等比数列
->   * $ a + aq + aq^2 + ... + aq^{n-1} = \begin{cases} {{a(1-q^n)} \over {1-q}}, & q \ne 1 \\ an, & q = 1 \end{cases} $
-
-> * $ 1+2+...+n = {n(n+1) \over 2}$
->
-> * $ 1^2 + 2^2 + ... +n^2 = {n(n+1)(2n+1) \over 6} $
-
-
-> * $ x^3 + y^3 = (x + y)(x^2 - xy + y^2) $
-> 
-> * $ x^3 - y^3 = (x - y)(x^2 + xy + y^2) $
-
-> * `cot(Cotangent)`: 和 `tan` 互为倒数
->
-> * `sec(secant)`: 和 `cos` 互为倒数
->
-> * `csc(Cosecant)`: 和 `sin` 互为倒数
-
->
-> * $ sec^2 \space x = 1 + tan^2 \space x $
->
-> * $ csc^2 \space x = 1 + cot^2 \space x $
-
 > * __倍角公式__
 > * $ sin2x = 2sinxcosx$
 >
