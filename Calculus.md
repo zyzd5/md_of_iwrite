@@ -5,9 +5,12 @@ $  $
 * 01: done, but不等式? 
 * 02: done 
 * 03: 0:32:38 
-* 04: 0:35:24
+* 04: done
+* 05: 04:38 $cur = 夹逼定理
 * 07: done, but反函数?
 * 08: done
+## 0基础线代_status
+* 01: 45:00, but no mark in note
 
 ## concept
 * 不定积分: 逆向还原导数, 得到函数的原函数
