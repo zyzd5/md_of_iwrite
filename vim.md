@@ -1,31 +1,5 @@
-## surround
-* `添加包围字符`
-    * 在 `visual` 下, 按下 `S`, 然后输入想要的包围字符
-    * 示例: 选中 `text`, 按下 `S`, 输入 `"`, 结果为 "text"
-
-* `修改包围字符`
-    * 在 `normal` 下, 按下 `cs`(change surround), 然后输入新的包围字符
-    * 示例: 光标在 `"text"`中, 按下 `cs"'`, 结果为 'text'
-
-* `删除包围字符`
-    * 在 `normal` 下, 按下 `ds`(delete surround)
-    * 示例: 光标在 `"text"`中, 按下 `ds"`, 结果为 text
-    
-```txt
-surround_words          
-*make strings            
-[delete ar*ound me!]     
-remove <b>HTML t*ags</b> 
-'change quot*es'         
-<b>or tag* types</b>     
-delete(functi*on calls)  
-```
-
 ## Normal
 * `%`: 跳转到配对的配对符(括号等)处
-## Insert
-* `s`: 删除当前光标的字符, 进入insert
-* `S`: 删除当前行, 进入insert
 ## Register
 * 一个字符对应一个寄存器(如`a-z`, `0-9`)
 * 特别的寄存器
@@ -47,39 +21,3 @@ delete(functi*on calls)
     * `@{register}`: 重放寄存器`{register}`中的操作
     * `@@`: 重放上一次宏操作
     * `.` 对宏不生效
-## config
-```vim
-let mapleader = ' ' 
-
-set encoding=utf-8
-set number
-set relativenumber
-set clipboard+=unnamedplus
-set scrolloff=4
-set incsearch
-set ignorecase
-set smartcase
-set expandtab
-set shiftwidth=4
-set tabstop=4
-set whichwrap=b,h,l,<,> 
-
-nnoremap <leader>h <C-w>h
-nnoremap <leader>l <C-w>l
-nnoremap <leader>j <C-w>j
-nnoremap <leader>k <C-w>k
-
-nnoremap ; ^
-nnoremap ' $
-vnoremap ; ^
-vnoremap ' $
-
-nnoremap J <Nop>
-nnoremap q: <Nop>
-nnoremap <C-e> <Nop>
-
-vnoremap J >+1<CR>gv=gv
-vnoremap K <-2<CR>gv=gv
-
-nnoremap <leader>va ggVG
-```

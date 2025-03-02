@@ -15,7 +15,7 @@ Exec=/usr/bin/google-chrome-stable --enable-wayland-ime --proxy-server="127.0.0.
     * a file's all of hard link be deleted, the file will be detele
 ```sh
 ln [option] source_file target_file
-# none option will create hard link
+# [non-option]: hard_link
 # -s: symbolic link
 # -v: verbose
 

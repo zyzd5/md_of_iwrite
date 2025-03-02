@@ -1,5 +1,27 @@
 * `翻译单元`: 是指编译之前, 编译器处理好的即将要编译的代码文件
 * R字符串: R"(原始字符串)";
+## operator
+```cc
+~a      // 逐位非
+a & b   // 逐位与
+a | b   // 逐位或
+a ^ b   // 逐位异或
+a << b  // 逐位左移
+a >> b  // 逐位右移
+```
+## std::find()
+```cc
+Iterator std::find(Iterator begin, Iterator end, const value);
+// return first_elem's iterator, non for end()
+
+Iterator std::find_if(Iterator begin, Iterator end, lambda condition);
+auto it = std::find_if(vec.begin(), vec.end(), [](int x){return x > 3;})
+// return first condition = true's iterator, non for end()
+
+Iterator std::find_if_not(Iterator begin, Iterator end, lambda condition);
+auto it = std::find_if_not(vec.begin(), vec.end(), [](int x){return x > 3;})
+// return first condition = false's iterator, non for end()
+```
 ## constexpr
 ## round() ceil() floor()
 * round(double num)
