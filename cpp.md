@@ -1,5 +1,3 @@
-* `翻译单元`: 是指编译之前, 编译器处理好的即将要编译的代码文件
-* R字符串: R"(原始字符串)";
 ## operator
 ```cc
 ~a      // 逐位非
@@ -28,7 +26,7 @@ auto it = std::find_if_not(vec.begin(), vec.end(), [](int x){return x > 3;})
     * 四舍五入到最接近的整数
 * ceil(double num)
     * 向上取整
-* floor(double num)                                                        
+* floor(double num)
     * 向下取整
 ## random number
 ```cc

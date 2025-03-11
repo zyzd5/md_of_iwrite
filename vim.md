@@ -1,5 +1,8 @@
 ## Normal
-* `%`: 跳转到配对的配对符(括号等)处
+* `%`: jump to paired symbol
+* `~`: turn cur_ch to uppercase
+* `ZZ`: quickly :wq
+* `ZQ`: quickly :q!
 ## Register
 * 一个字符对应一个寄存器(如`a-z`, `0-9`)
 * 特别的寄存器

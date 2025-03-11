@@ -1,8 +1,43 @@
-## 排序
-### 快速排序
-## 回溯
-## 二分查找
-* left 为 -1, right 为 arr.size()
+* 高精度加法
+```cc
+void solve(std::string& a, std::string& b) {
+    std::reverse(a.begin(), a.end());
+    std::reverse(b.begin(), b.end());
+    int max_len = std::max(a.size(), b.size());
+    std::string result;
+    int carry = 0;
+
+    for (int i = 0; i < max_len; i++) {
+        int num_a = i < a.size() ? int(a[i] - '0') : 0;
+        int num_b = i < b.size() ? int(b[i] - '0') : 0;
+
+        int sum = num_a + num_b + carry;
+        carry = sum / 10;
+        result.push_back(char(sum % 10) + '0');
+    }
+    if (carry)
+        result.push_back(carry + '0');
+
+    std::reverse(result.begin(), result.end());
+    std::cout << result << std::endl;
+}
+'3' - '0' = 3;
+char(3 + '0') = '3'
+```
+* 素数: > 1 是素数的范围 
+```cc
+bool is_prime(int num) {
+    if (num <= 1) return false;
+    if (num == 2) return true;  // only even num but prime
+    if (num % 2 == 0) return false;              
+    // even num already be dealed
+    for (int i = 3; i < std::sqrt(num); i += 2) 
+        if (num % i == 0) return false;
+    return true;
+}
+```
+* 二分
+    * left 为 -1, right 为 arr.size()
 ```cc
 int left = -1, right = arr.size();
 
@@ -18,40 +53,3 @@ while (left + 1 != right)
 }
 return -1
 ```
-## 二叉树
-```cc
-struct TreeNode
-{
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode* left, TreeNode* right) : val(x), left(left), right(right) {}
-};
-```
-### 前序后序中序遍历二叉树
-1. 前往需要先记录的节点
-2. 无法继续前进(当前val为 nullptr, return)
-3. 开始记录数据
-
-```cc
-void recursion(std::vector<int> &result, TreeNode* root) noexcept
-{
-    if (root == nullptr)
-        return;
-
-    recursion(result, root->left);
-    result.push_back(root->val);
-    recursion(result, root->right);
-}
-```
-### 求深度
-```cc
-int maxDepth(TreeNode* root) 
-{
-    if (root == nullptr) return 0;
-    return std::max(maxDepth(root->left), maxDepth(root->right))+1;
-}
-```
-
